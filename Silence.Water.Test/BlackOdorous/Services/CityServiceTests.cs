@@ -5,20 +5,20 @@ using Silence.Water.BlackOdorous.Services;
 namespace Silence.Water.Test.BlackOdorous.Services;
 
 /// <summary>
-/// ³ÇÊĞºÚ³ôË®Ìå·şÎñÀàµÄµ¥Ôª²âÊÔ
+/// åŸå¸‚é»‘è‡­æ°´ä½“æœåŠ¡ç±»çš„å•å…ƒæµ‹è¯•
 /// </summary>
 public class CityServiceTests
 {
-    #region GetBlackOdorousClass - ×ÛºÏÆÀ¹À²âÊÔ
+    #region GetBlackOdorousClass - ç»¼åˆè¯„ä¼°æµ‹è¯•
 
     [Fact]
     public void GetBlackOdorousClass_AllFactorsNotBlackOdorous_ReturnsNotBlackOdorous()
     {
-        // Arrange - ËùÓĞÖ¸±ê¶¼²»ºÚ³ô
-        decimal SD = 30m;      // Í¸Ã÷¶È > 25cm
-        decimal DO = 5.0m;     // ÈÜ½âÑõ > 2.0mg/L
-        decimal NH3N = 5.0m;   // °±µª <= 8.0mg/L
-        decimal depth = 50m;   // Ë®Éî³ä×ã
+        // Arrange - æ‰€æœ‰æŒ‡æ ‡éƒ½ä¸é»‘è‡­
+        decimal SD = 30m;      // é€æ˜åº¦ > 25cm
+        decimal DO = 5.0m;     // æº¶è§£æ°§ > 2.0mg/L
+        decimal NH3N = 5.0m;   // æ°¨æ°® <= 8.0mg/L
+        decimal depth = 50m;   // æ°´æ·±å……è¶³
         bool isClear = false;
 
         // Act
@@ -26,18 +26,18 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, result.BlackOdorousClass);
         Assert.Equal(3, result.Factors.Count);
-        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.²»ºÚ³ô, f.Item2));
+        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, f.Item2));
     }
 
     [Fact]
     public void GetBlackOdorousClass_AllFactorsMildBlackOdorous_ReturnsMildBlackOdorous()
     {
-        // Arrange - ËùÓĞÖ¸±ê¶¼ÊÇÇá¶ÈºÚ³ô
-        decimal SD = 15m;      // Í¸Ã÷¶È 10-25cm
-        decimal DO = 1.0m;     // ÈÜ½âÑõ 0.2-2.0mg/L
-        decimal NH3N = 10.0m;  // °±µª 8-15mg/L
+        // Arrange - æ‰€æœ‰æŒ‡æ ‡éƒ½æ˜¯è½»åº¦é»‘è‡­
+        decimal SD = 15m;      // é€æ˜åº¦ 10-25cm
+        decimal DO = 1.0m;     // æº¶è§£æ°§ 0.2-2.0mg/L
+        decimal NH3N = 10.0m;  // æ°¨æ°® 8-15mg/L
         decimal depth = 50m;
         bool isClear = false;
 
@@ -46,18 +46,18 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, result.BlackOdorousClass);
         Assert.Equal(3, result.Factors.Count);
-        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, f.Item2));
+        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, f.Item2));
     }
 
     [Fact]
     public void GetBlackOdorousClass_AllFactorsSevereBlackOdorous_ReturnsSevereBlackOdorous()
     {
-        // Arrange - ËùÓĞÖ¸±ê¶¼ÊÇÖØ¶ÈºÚ³ô
-        decimal SD = 5m;       // Í¸Ã÷¶È < 10cm
-        decimal DO = 0.1m;     // ÈÜ½âÑõ < 0.2mg/L
-        decimal NH3N = 20.0m;  // °±µª > 15mg/L
+        // Arrange - æ‰€æœ‰æŒ‡æ ‡éƒ½æ˜¯é‡åº¦é»‘è‡­
+        decimal SD = 5m;       // é€æ˜åº¦ < 10cm
+        decimal DO = 0.1m;     // æº¶è§£æ°§ < 0.2mg/L
+        decimal NH3N = 20.0m;  // æ°¨æ°® > 15mg/L
         decimal depth = 50m;
         bool isClear = false;
 
@@ -66,18 +66,18 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, result.BlackOdorousClass);
         Assert.Equal(3, result.Factors.Count);
-        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, f.Item2));
+        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, f.Item2));
     }
 
     [Fact]
     public void GetBlackOdorousClass_MixedFactors_ReturnsWorstClass()
     {
-        // Arrange - »ìºÏµÈ¼¶£¬Ó¦·µ»Ø×îÑÏÖØµÄµÈ¼¶
-        decimal SD = 30m;      // Í¸Ã÷¶È²»ºÚ³ô
-        decimal DO = 1.0m;     // ÈÜ½âÑõÇá¶ÈºÚ³ô
-        decimal NH3N = 20.0m;  // °±µªÖØ¶ÈºÚ³ô
+        // Arrange - æ··åˆç­‰çº§ï¼Œåº”è¿”å›æœ€ä¸¥é‡çš„ç­‰çº§
+        decimal SD = 30m;      // é€æ˜åº¦ä¸é»‘è‡­
+        decimal DO = 1.0m;     // æº¶è§£æ°§è½»åº¦é»‘è‡­
+        decimal NH3N = 20.0m;  // æ°¨æ°®é‡åº¦é»‘è‡­
         decimal depth = 50m;
         bool isClear = false;
 
@@ -86,20 +86,20 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, result.BlackOdorousClass); // È¡×îÑÏÖØµÄµÈ¼¶
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, result.BlackOdorousClass); // å–æœ€ä¸¥é‡çš„ç­‰çº§
         Assert.Equal(3, result.Factors.Count);
-        Assert.Contains(result.Factors, f => f.Item1 == "Í¸Ã÷¶È" && f.Item2 == BlackOdorousClass.²»ºÚ³ô);
-        Assert.Contains(result.Factors, f => f.Item1 == "ÈÜ½âÑõ" && f.Item2 == BlackOdorousClass.Çá¶ÈºÚ³ô);
-        Assert.Contains(result.Factors, f => f.Item1 == "°±µª" && f.Item2 == BlackOdorousClass.ÖØ¶ÈºÚ³ô);
+        Assert.Contains(result.Factors, f => f.Item1 == "é€æ˜åº¦" && f.Item2 == BlackOdorousClass.ä¸é»‘è‡­);
+        Assert.Contains(result.Factors, f => f.Item1 == "æº¶è§£æ°§" && f.Item2 == BlackOdorousClass.è½»åº¦é»‘è‡­);
+        Assert.Contains(result.Factors, f => f.Item1 == "æ°¨æ°®" && f.Item2 == BlackOdorousClass.é‡åº¦é»‘è‡­);
     }
 
     [Fact]
     public void GetBlackOdorousClass_WithNegativeSD_IgnoresSDFactor()
     {
-        // Arrange - °üº¬¸ºÖµµÄÍ¸Ã÷¶È
-        decimal SD = -1m;      // ÎŞĞ§Í¸Ã÷¶È
-        decimal DO = 5.0m;     // ÈÜ½âÑõ²»ºÚ³ô
-        decimal NH3N = 5.0m;   // °±µª²»ºÚ³ô
+        // Arrange - åŒ…å«è´Ÿå€¼çš„é€æ˜åº¦
+        decimal SD = -1m;      // æ— æ•ˆé€æ˜åº¦
+        decimal DO = 5.0m;     // æº¶è§£æ°§ä¸é»‘è‡­
+        decimal NH3N = 5.0m;   // æ°¨æ°®ä¸é»‘è‡­
         decimal depth = 50m;
         bool isClear = false;
 
@@ -108,17 +108,17 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(2, result.Factors.Count); // Ö»ÓĞ2¸öÓĞĞ§Òò×Ó
-        Assert.DoesNotContain(result.Factors, f => f.Item1 == "Í¸Ã÷¶È");
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(2, result.Factors.Count); // åªæœ‰2ä¸ªæœ‰æ•ˆå› å­
+        Assert.DoesNotContain(result.Factors, f => f.Item1 == "é€æ˜åº¦");
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, result.BlackOdorousClass);
     }
 
     [Fact]
     public void GetBlackOdorousClass_WithNegativeDO_IgnoresDOFactor()
     {
-        // Arrange - °üº¬¸ºÖµµÄÈÜ½âÑõ
+        // Arrange - åŒ…å«è´Ÿå€¼çš„æº¶è§£æ°§
         decimal SD = 30m;
-        decimal DO = -1m;      // ÎŞĞ§ÈÜ½âÑõ
+        decimal DO = -1m;      // æ— æ•ˆæº¶è§£æ°§
         decimal NH3N = 5.0m;
         decimal depth = 50m;
         bool isClear = false;
@@ -129,16 +129,16 @@ public class CityServiceTests
         // Assert
         Assert.NotNull(result);
         Assert.Equal(2, result.Factors.Count);
-        Assert.DoesNotContain(result.Factors, f => f.Item1 == "ÈÜ½âÑõ");
+        Assert.DoesNotContain(result.Factors, f => f.Item1 == "æº¶è§£æ°§");
     }
 
     [Fact]
     public void GetBlackOdorousClass_WithNegativeNH3N_IgnoresNH3NFactor()
     {
-        // Arrange - °üº¬¸ºÖµµÄ°±µª
+        // Arrange - åŒ…å«è´Ÿå€¼çš„æ°¨æ°®
         decimal SD = 30m;
         decimal DO = 5.0m;
-        decimal NH3N = -1m;    // ÎŞĞ§°±µª
+        decimal NH3N = -1m;    // æ— æ•ˆæ°¨æ°®
         decimal depth = 50m;
         bool isClear = false;
 
@@ -148,17 +148,17 @@ public class CityServiceTests
         // Assert
         Assert.NotNull(result);
         Assert.Equal(2, result.Factors.Count);
-        Assert.DoesNotContain(result.Factors, f => f.Item1 == "°±µª");
+        Assert.DoesNotContain(result.Factors, f => f.Item1 == "æ°¨æ°®");
     }
 
     [Fact]
     public void GetBlackOdorousClass_WithNegativeDepth_IgnoresSDFactor()
     {
-        // Arrange - °üº¬¸ºÖµµÄË®Éî
+        // Arrange - åŒ…å«è´Ÿå€¼çš„æ°´æ·±
         decimal SD = 30m;
         decimal DO = 5.0m;
         decimal NH3N = 5.0m;
-        decimal depth = -1m;   // ÎŞĞ§Ë®Éî
+        decimal depth = -1m;   // æ— æ•ˆæ°´æ·±
         bool isClear = false;
 
         // Act
@@ -167,13 +167,13 @@ public class CityServiceTests
         // Assert
         Assert.NotNull(result);
         Assert.Equal(2, result.Factors.Count);
-        Assert.DoesNotContain(result.Factors, f => f.Item1 == "Í¸Ã÷¶È");
+        Assert.DoesNotContain(result.Factors, f => f.Item1 == "é€æ˜åº¦");
     }
 
     [Fact]
     public void GetBlackOdorousClass_AllNegativeValues_ReturnsNullClass()
     {
-        // Arrange - ËùÓĞÖµ¶¼ÎŞĞ§
+        // Arrange - æ‰€æœ‰å€¼éƒ½æ— æ•ˆ
         decimal SD = -1m;
         decimal DO = -1m;
         decimal NH3N = -1m;
@@ -191,16 +191,16 @@ public class CityServiceTests
 
     #endregion
 
-    #region Í¸Ã÷¶È (SD) ²âÊÔ - Ë®Éî³ä×ã³¡¾°
+    #region é€æ˜åº¦ (SD) æµ‹è¯• - æ°´æ·±å……è¶³åœºæ™¯
 
     [Theory]
-    [InlineData(30)]   // Í¸Ã÷¶È > 25cm
-    [InlineData(25)]   // Í¸Ã÷¶È = 25cm£¬±ß½çÖµ
-    [InlineData(100)]  // Í¸Ã÷¶ÈºÜ´ó
-    [InlineData(26)]   // ¸Õ³¬¹ıãĞÖµ
+    [InlineData(30)]   // é€æ˜åº¦ > 25cm
+    [InlineData(25)]   // é€æ˜åº¦ = 25cmï¼Œè¾¹ç•Œå€¼
+    [InlineData(100)]  // é€æ˜åº¦å¾ˆå¤§
+    [InlineData(26)]   // åˆšè¶…è¿‡é˜ˆå€¼
     public void GetBlackOdorousClass_SDNotBlackOdorous_WaterDepthSufficient(decimal SD)
     {
-        // Arrange - Ë®Éî³ä×ã£¬Í¸Ã÷¶È >= 25cm
+        // Arrange - æ°´æ·±å……è¶³ï¼Œé€æ˜åº¦ >= 25cm
         decimal depth = 50m;
         decimal DO = 5.0m;
         decimal NH3N = 5.0m;
@@ -210,20 +210,20 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "Í¸Ã÷¶È");
+        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "é€æ˜åº¦");
         Assert.NotEqual(default, sdFactor);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, sdFactor.Item2);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, sdFactor.Item2);
     }
 
     [Theory]
-    [InlineData(15)]   // Í¸Ã÷¶È 10-25cm ÖĞ¼äÖµ
-    [InlineData(10)]   // Í¸Ã÷¶È = 10cm£¬ÏÂ±ß½çÖµ
-    [InlineData(24)]   // ½Ó½üÉÏÏŞ
-    [InlineData(24.9)] // ·Ç³£½Ó½üÉÏÏŞ
-    [InlineData(10.1)] // ¸Õ³¬¹ıÏÂÏŞ
+    [InlineData(15)]   // é€æ˜åº¦ 10-25cm ä¸­é—´å€¼
+    [InlineData(10)]   // é€æ˜åº¦ = 10cmï¼Œä¸‹è¾¹ç•Œå€¼
+    [InlineData(24)]   // æ¥è¿‘ä¸Šé™
+    [InlineData(24.9)] // éå¸¸æ¥è¿‘ä¸Šé™
+    [InlineData(10.1)] // åˆšè¶…è¿‡ä¸‹é™
     public void GetBlackOdorousClass_SDMildBlackOdorous_WaterDepthSufficient(decimal SD)
     {
-        // Arrange - Ë®Éî³ä×ã£¬10cm <= Í¸Ã÷¶È < 25cm
+        // Arrange - æ°´æ·±å……è¶³ï¼Œ10cm <= é€æ˜åº¦ < 25cm
         decimal depth = 50m;
         decimal DO = 5.0m;
         decimal NH3N = 5.0m;
@@ -233,20 +233,20 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "Í¸Ã÷¶È");
+        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "é€æ˜åº¦");
         Assert.NotEqual(default, sdFactor);
-        Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, sdFactor.Item2);
+        Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, sdFactor.Item2);
     }
 
     [Theory]
-    [InlineData(5)]    // Í¸Ã÷¶È < 10cm
-    [InlineData(9)]    // ½Ó½üÁÙ½çÖµ
-    [InlineData(0)]    // Í¸Ã÷¶ÈÎª0
-    [InlineData(9.9)]  // ·Ç³£½Ó½üÁÙ½çÖµ
-    [InlineData(0.1)]  // ¼«Ğ¡Í¸Ã÷¶È
+    [InlineData(5)]    // é€æ˜åº¦ < 10cm
+    [InlineData(9)]    // æ¥è¿‘ä¸´ç•Œå€¼
+    [InlineData(0)]    // é€æ˜åº¦ä¸º0
+    [InlineData(9.9)]  // éå¸¸æ¥è¿‘ä¸´ç•Œå€¼
+    [InlineData(0.1)]  // æå°é€æ˜åº¦
     public void GetBlackOdorousClass_SDSevereBlackOdorous_WaterDepthSufficient(decimal SD)
     {
-        // Arrange - Ë®Éî³ä×ã£¬Í¸Ã÷¶È < 10cm
+        // Arrange - æ°´æ·±å……è¶³ï¼Œé€æ˜åº¦ < 10cm
         decimal depth = 50m;
         decimal DO = 5.0m;
         decimal NH3N = 5.0m;
@@ -256,15 +256,15 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "Í¸Ã÷¶È");
+        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "é€æ˜åº¦");
         Assert.NotEqual(default, sdFactor);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, sdFactor.Item2);
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, sdFactor.Item2);
     }
 
     [Fact]
     public void GetBlackOdorousClass_DepthExactly25_TreatsAsSufficient()
     {
-        // Arrange - Ë®ÉîÕıºÃ25cm£¨±ß½çÖµ£©
+        // Arrange - æ°´æ·±æ­£å¥½25cmï¼ˆè¾¹ç•Œå€¼ï¼‰
         decimal SD = 30m;
         decimal depth = 25m;
         decimal DO = 5.0m;
@@ -275,22 +275,22 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "Í¸Ã÷¶È");
+        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "é€æ˜åº¦");
         Assert.NotEqual(default, sdFactor);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, sdFactor.Item2);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, sdFactor.Item2);
     }
 
     #endregion
 
-    #region Í¸Ã÷¶È (SD) ²âÊÔ - Ë®Éî²»×ã³¡¾°
+    #region é€æ˜åº¦ (SD) æµ‹è¯• - æ°´æ·±ä¸è¶³åœºæ™¯
 
     [Fact]
     public void GetBlackOdorousClass_SDClearToBottom_WaterDepthInsufficient_ReturnsNotBlackOdorous()
     {
-        // Arrange - Ë®Éî²»×ã25cm£¬µ«Çå³º¼ûµ×
+        // Arrange - æ°´æ·±ä¸è¶³25cmï¼Œä½†æ¸…æ¾ˆè§åº•
         decimal SD = 15m;
-        decimal depth = 20m;   // Ë®Éî < 25cm
-        bool isClear = true;   // Çå³º¼ûµ×
+        decimal depth = 20m;   // æ°´æ·± < 25cm
+        bool isClear = true;   // æ¸…æ¾ˆè§åº•
         decimal DO = 5.0m;
         decimal NH3N = 5.0m;
 
@@ -298,20 +298,20 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "Í¸Ã÷¶È");
+        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "é€æ˜åº¦");
         Assert.NotEqual(default, sdFactor);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, sdFactor.Item2);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, sdFactor.Item2);
     }
 
     [Theory]
     [InlineData(10, 20)]   // SD(10) >= depth(20) * 0.4 = 8
     [InlineData(9, 20)]    // SD(9) >= depth(20) * 0.4 = 8
-    [InlineData(8, 20)]    // SD(8) >= depth(20) * 0.4 = 8£¬±ß½çÖµ
-    [InlineData(8.1, 20)]  // ¸Õ³¬¹ı±ß½ç
-    [InlineData(15, 20)]   // Ô¶³¬¹ı±ß½ç
+    [InlineData(8, 20)]    // SD(8) >= depth(20) * 0.4 = 8ï¼Œè¾¹ç•Œå€¼
+    [InlineData(8.1, 20)]  // åˆšè¶…è¿‡è¾¹ç•Œ
+    [InlineData(15, 20)]   // è¿œè¶…è¿‡è¾¹ç•Œ
     public void GetBlackOdorousClass_SDMildBlackOdorous_WaterDepthInsufficient(decimal SD, decimal depth)
     {
-        // Arrange - Ë®Éî²»×ã25cm£¬Í¸Ã÷¶È >= 40%Ë®Éî
+        // Arrange - æ°´æ·±ä¸è¶³25cmï¼Œé€æ˜åº¦ >= 40%æ°´æ·±
         decimal DO = 5.0m;
         decimal NH3N = 5.0m;
         bool isClear = false;
@@ -320,20 +320,20 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "Í¸Ã÷¶È");
+        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "é€æ˜åº¦");
         Assert.NotEqual(default, sdFactor);
-        Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, sdFactor.Item2);
+        Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, sdFactor.Item2);
     }
 
     [Theory]
     [InlineData(5, 20)]    // SD(5) < depth(20) * 0.4 = 8
     [InlineData(7, 20)]    // SD(7) < depth(20) * 0.4 = 8
     [InlineData(0, 20)]    // SD = 0
-    [InlineData(7.9, 20)]  // ½Ó½üµ«Î´´ïµ½±ß½ç
-    [InlineData(5.9, 15)]    // SD(6) = depth(15) * 0.4£¬±ß½çÖµ
+    [InlineData(7.9, 20)]  // æ¥è¿‘ä½†æœªè¾¾åˆ°è¾¹ç•Œ
+    [InlineData(5.9, 15)]    // SD(6) = depth(15) * 0.4ï¼Œè¾¹ç•Œå€¼
     public void GetBlackOdorousClass_SDSevereBlackOdorous_WaterDepthInsufficient(decimal SD, decimal depth)
     {
-        // Arrange - Ë®Éî²»×ã25cm£¬Í¸Ã÷¶È < 40%Ë®Éî
+        // Arrange - æ°´æ·±ä¸è¶³25cmï¼Œé€æ˜åº¦ < 40%æ°´æ·±
         decimal DO = 5.0m;
         decimal NH3N = 5.0m;
         bool isClear = false;
@@ -342,18 +342,18 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "Í¸Ã÷¶È");
+        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "é€æ˜åº¦");
         Assert.NotEqual(default, sdFactor);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, sdFactor.Item2);
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, sdFactor.Item2);
     }
 
     [Theory]
-    [InlineData(5, true)]   // Çå³º¼ûµ×
-    [InlineData(10, true)]  // Çå³º¼ûµ×
-    [InlineData(15, true)]  // Çå³º¼ûµ×
+    [InlineData(5, true)]   // æ¸…æ¾ˆè§åº•
+    [InlineData(10, true)]  // æ¸…æ¾ˆè§åº•
+    [InlineData(15, true)]  // æ¸…æ¾ˆè§åº•
     public void GetBlackOdorousClass_ShallowWaterClear_AlwaysNotBlackOdorous(decimal SD, bool isClear)
     {
-        // Arrange - Ë®Éî²»×ã£¬µ«Çå³º¼ûµ×£¬ÎŞÂÛÍ¸Ã÷¶È¶àÉÙ¶¼²»ºÚ³ô
+        // Arrange - æ°´æ·±ä¸è¶³ï¼Œä½†æ¸…æ¾ˆè§åº•ï¼Œæ— è®ºé€æ˜åº¦å¤šå°‘éƒ½ä¸é»‘è‡­
         decimal depth = 20m;
         decimal DO = 5.0m;
         decimal NH3N = 5.0m;
@@ -362,21 +362,21 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "Í¸Ã÷¶È");
+        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "é€æ˜åº¦");
         Assert.NotEqual(default, sdFactor);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, sdFactor.Item2);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, sdFactor.Item2);
     }
 
     #endregion
 
-    #region ÈÜ½âÑõ (DO) ²âÊÔ
+    #region æº¶è§£æ°§ (DO) æµ‹è¯•
 
     [Theory]
     [InlineData(5.0)]   // DO > 2.0mg/L
-    [InlineData(2.0)]   // DO = 2.0mg/L£¬±ß½çÖµ
-    [InlineData(10.0)]  // ¸ßÈÜ½âÑõ
-    [InlineData(100.0)] // ¼«¸ßÈÜ½âÑõ
-    [InlineData(2.1)]   // ¸Õ³¬¹ıãĞÖµ
+    [InlineData(2.0)]   // DO = 2.0mg/Lï¼Œè¾¹ç•Œå€¼
+    [InlineData(10.0)]  // é«˜æº¶è§£æ°§
+    [InlineData(100.0)] // æé«˜æº¶è§£æ°§
+    [InlineData(2.1)]   // åˆšè¶…è¿‡é˜ˆå€¼
     public void GetBlackOdorousClass_DONotBlackOdorous(decimal DO)
     {
         // Arrange - DO >= 2.0mg/L
@@ -389,18 +389,18 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var doFactor = result.Factors.FirstOrDefault(f => f.Item1 == "ÈÜ½âÑõ");
+        var doFactor = result.Factors.FirstOrDefault(f => f.Item1 == "æº¶è§£æ°§");
         Assert.NotEqual(default, doFactor);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, doFactor.Item2);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, doFactor.Item2);
     }
 
     [Theory]
     [InlineData(1.0)]   // 0.2 <= DO < 2.0
-    [InlineData(0.5)]   // ÖĞ¼äÖµ
-    [InlineData(0.2)]   // DO = 0.2£¬ÏÂ±ß½çÖµ
-    [InlineData(1.9)]   // ½Ó½üÉÏÏŞ
-    [InlineData(1.99)]  // ·Ç³£½Ó½üÉÏÏŞ
-    [InlineData(0.21)]  // ¸Õ³¬¹ıÏÂÏŞ
+    [InlineData(0.5)]   // ä¸­é—´å€¼
+    [InlineData(0.2)]   // DO = 0.2ï¼Œä¸‹è¾¹ç•Œå€¼
+    [InlineData(1.9)]   // æ¥è¿‘ä¸Šé™
+    [InlineData(1.99)]  // éå¸¸æ¥è¿‘ä¸Šé™
+    [InlineData(0.21)]  // åˆšè¶…è¿‡ä¸‹é™
     public void GetBlackOdorousClass_DOMildBlackOdorous(decimal DO)
     {
         // Arrange - 0.2 <= DO < 2.0mg/L
@@ -413,16 +413,16 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var doFactor = result.Factors.FirstOrDefault(f => f.Item1 == "ÈÜ½âÑõ");
+        var doFactor = result.Factors.FirstOrDefault(f => f.Item1 == "æº¶è§£æ°§");
         Assert.NotEqual(default, doFactor);
-        Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, doFactor.Item2);
+        Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, doFactor.Item2);
     }
 
     [Theory]
     [InlineData(0.1)]   // DO < 0.2mg/L
     [InlineData(0.0)]   // DO = 0
-    [InlineData(0.19)]  // ½Ó½üÁÙ½çÖµ
-    [InlineData(0.01)]  // ¼«µÍÈÜ½âÑõ
+    [InlineData(0.19)]  // æ¥è¿‘ä¸´ç•Œå€¼
+    [InlineData(0.01)]  // æä½æº¶è§£æ°§
     public void GetBlackOdorousClass_DOSevereBlackOdorous(decimal DO)
     {
         // Arrange - DO < 0.2mg/L
@@ -435,21 +435,21 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var doFactor = result.Factors.FirstOrDefault(f => f.Item1 == "ÈÜ½âÑõ");
+        var doFactor = result.Factors.FirstOrDefault(f => f.Item1 == "æº¶è§£æ°§");
         Assert.NotEqual(default, doFactor);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, doFactor.Item2);
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, doFactor.Item2);
     }
 
     #endregion
 
-    #region °±µª (NH3N) ²âÊÔ
+    #region æ°¨æ°® (NH3N) æµ‹è¯•
 
     [Theory]
     [InlineData(0.0)]   // NH3N = 0
     [InlineData(5.0)]   // NH3N < 8.0mg/L
-    [InlineData(8.0)]   // NH3N = 8.0£¬±ß½çÖµ
-    [InlineData(7.9)]   // ½Ó½üÉÏÏŞ
-    [InlineData(0.1)]   // ¼«µÍ°±µª
+    [InlineData(8.0)]   // NH3N = 8.0ï¼Œè¾¹ç•Œå€¼
+    [InlineData(7.9)]   // æ¥è¿‘ä¸Šé™
+    [InlineData(0.1)]   // æä½æ°¨æ°®
     public void GetBlackOdorousClass_NH3NNotBlackOdorous(decimal NH3N)
     {
         // Arrange - NH3N <= 8.0mg/L
@@ -462,17 +462,17 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var nh3nFactor = result.Factors.FirstOrDefault(f => f.Item1 == "°±µª");
+        var nh3nFactor = result.Factors.FirstOrDefault(f => f.Item1 == "æ°¨æ°®");
         Assert.NotEqual(default, nh3nFactor);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, nh3nFactor.Item2);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, nh3nFactor.Item2);
     }
 
     [Theory]
     [InlineData(10.0)]  // 8 < NH3N <= 15
-    [InlineData(8.1)]   // ¸Õ³¬¹ıÏÂÏŞ
-    [InlineData(15.0)]  // NH3N = 15£¬ÉÏ±ß½çÖµ
-    [InlineData(14.9)]  // ½Ó½üÉÏÏŞ
-    [InlineData(12.0)]  // ÖĞ¼äÖµ
+    [InlineData(8.1)]   // åˆšè¶…è¿‡ä¸‹é™
+    [InlineData(15.0)]  // NH3N = 15ï¼Œä¸Šè¾¹ç•Œå€¼
+    [InlineData(14.9)]  // æ¥è¿‘ä¸Šé™
+    [InlineData(12.0)]  // ä¸­é—´å€¼
     public void GetBlackOdorousClass_NH3NMildBlackOdorous(decimal NH3N)
     {
         // Arrange - 8 < NH3N <= 15mg/L
@@ -485,17 +485,17 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var nh3nFactor = result.Factors.FirstOrDefault(f => f.Item1 == "°±µª");
+        var nh3nFactor = result.Factors.FirstOrDefault(f => f.Item1 == "æ°¨æ°®");
         Assert.NotEqual(default, nh3nFactor);
-        Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, nh3nFactor.Item2);
+        Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, nh3nFactor.Item2);
     }
 
     [Theory]
     [InlineData(20.0)]   // NH3N > 15mg/L
-    [InlineData(15.1)]   // ¸Õ³¬¹ıÁÙ½çÖµ
-    [InlineData(100.0)]  // ¸ßÅ¨¶È
-    [InlineData(1000.0)] // ¼«¸ßÅ¨¶È
-    [InlineData(16.0)]   // ÂÔ¸ßÓÚãĞÖµ
+    [InlineData(15.1)]   // åˆšè¶…è¿‡ä¸´ç•Œå€¼
+    [InlineData(100.0)]  // é«˜æµ“åº¦
+    [InlineData(1000.0)] // æé«˜æµ“åº¦
+    [InlineData(16.0)]   // ç•¥é«˜äºé˜ˆå€¼
     public void GetBlackOdorousClass_NH3NSevereBlackOdorous(decimal NH3N)
     {
         // Arrange - NH3N > 15mg/L
@@ -508,23 +508,23 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        var nh3nFactor = result.Factors.FirstOrDefault(f => f.Item1 == "°±µª");
+        var nh3nFactor = result.Factors.FirstOrDefault(f => f.Item1 == "æ°¨æ°®");
         Assert.NotEqual(default, nh3nFactor);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, nh3nFactor.Item2);
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, nh3nFactor.Item2);
     }
 
     #endregion
 
-    #region ±ß½çÖµ×ÛºÏ²âÊÔ
+    #region è¾¹ç•Œå€¼ç»¼åˆæµ‹è¯•
 
     [Fact]
     public void GetBlackOdorousClass_AllBoundaryValuesNotBlackOdorous()
     {
-        // Arrange - ËùÓĞ±ß½çÖµ¶¼ÔÚ²»ºÚ³ô·¶Î§
-        decimal SD = 25m;     // Í¸Ã÷¶È±ß½çÖµ
-        decimal depth = 25m;  // Ë®Éî±ß½çÖµ
-        decimal DO = 2.0m;    // ÈÜ½âÑõ±ß½çÖµ
-        decimal NH3N = 8.0m;  // °±µª±ß½çÖµ
+        // Arrange - æ‰€æœ‰è¾¹ç•Œå€¼éƒ½åœ¨ä¸é»‘è‡­èŒƒå›´
+        decimal SD = 25m;     // é€æ˜åº¦è¾¹ç•Œå€¼
+        decimal depth = 25m;  // æ°´æ·±è¾¹ç•Œå€¼
+        decimal DO = 2.0m;    // æº¶è§£æ°§è¾¹ç•Œå€¼
+        decimal NH3N = 8.0m;  // æ°¨æ°®è¾¹ç•Œå€¼
         bool isClear = false;
 
         // Act
@@ -532,18 +532,18 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, result.BlackOdorousClass);
         Assert.Equal(3, result.Factors.Count);
     }
 
     [Fact]
     public void GetBlackOdorousClass_AllBoundaryValuesMildBlackOdorous()
     {
-        // Arrange - ËùÓĞ±ß½çÖµ¶¼ÔÚÇá¶ÈºÚ³ô·¶Î§
-        decimal SD = 10m;     // Í¸Ã÷¶ÈÏÂ±ß½ç
+        // Arrange - æ‰€æœ‰è¾¹ç•Œå€¼éƒ½åœ¨è½»åº¦é»‘è‡­èŒƒå›´
+        decimal SD = 10m;     // é€æ˜åº¦ä¸‹è¾¹ç•Œ
         decimal depth = 50m;
-        decimal DO = 0.2m;    // ÈÜ½âÑõÏÂ±ß½ç
-        decimal NH3N = 15.0m; // °±µªÉÏ±ß½ç
+        decimal DO = 0.2m;    // æº¶è§£æ°§ä¸‹è¾¹ç•Œ
+        decimal NH3N = 15.0m; // æ°¨æ°®ä¸Šè¾¹ç•Œ
         bool isClear = false;
 
         // Act
@@ -551,14 +551,14 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, result.BlackOdorousClass);
         Assert.Equal(3, result.Factors.Count);
     }
 
     [Fact]
     public void GetBlackOdorousClass_ZeroValues_ValidEvaluation()
     {
-        // Arrange - ÁãÖµ²âÊÔ
+        // Arrange - é›¶å€¼æµ‹è¯•
         decimal SD = 0m;
         decimal depth = 50m;
         decimal DO = 0m;
@@ -571,22 +571,22 @@ public class CityServiceTests
         // Assert
         Assert.NotNull(result);
         Assert.Equal(3, result.Factors.Count);
-        // DO=0Ó¦¸ÃÊÇÖØ¶ÈºÚ³ô£¬SD=0Ó¦¸ÃÊÇÖØ¶ÈºÚ³ô£¬NH3N=0Ó¦¸ÃÊÇ²»ºÚ³ô
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, result.BlackOdorousClass);
+        // DO=0åº”è¯¥æ˜¯é‡åº¦é»‘è‡­ï¼ŒSD=0åº”è¯¥æ˜¯é‡åº¦é»‘è‡­ï¼ŒNH3N=0åº”è¯¥æ˜¯ä¸é»‘è‡­
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, result.BlackOdorousClass);
     }
 
     #endregion
 
-    #region Êµ¼Ê³¡¾°¼¯³É²âÊÔ
+    #region å®é™…åœºæ™¯é›†æˆæµ‹è¯•
 
     [Fact]
     public void IntegrationTest_TypicalCleanRiver()
     {
-        // Arrange - Ä£ÄâµäĞÍµÄÇå½àºÓÁ÷
-        decimal SD = 80m;      // Í¸Ã÷¶ÈºÃ
-        decimal depth = 150m;  // Ë®Éî³ä×ã
-        decimal DO = 8.5m;     // ÈÜ½âÑõ³ä×ã
-        decimal NH3N = 0.5m;   // °±µªµÍ
+        // Arrange - æ¨¡æ‹Ÿå…¸å‹çš„æ¸…æ´æ²³æµ
+        decimal SD = 80m;      // é€æ˜åº¦å¥½
+        decimal depth = 150m;  // æ°´æ·±å……è¶³
+        decimal DO = 8.5m;     // æº¶è§£æ°§å……è¶³
+        decimal NH3N = 0.5m;   // æ°¨æ°®ä½
         bool isClear = false;
 
         // Act
@@ -594,19 +594,19 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, result.BlackOdorousClass);
         Assert.Equal(3, result.Factors.Count);
-        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.²»ºÚ³ô, f.Item2));
+        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, f.Item2));
     }
 
     [Fact]
     public void IntegrationTest_PollutedUrbanWaterBody()
     {
-        // Arrange - Ä£ÄâÑÏÖØÎÛÈ¾µÄ³ÇÊĞË®Ìå
-        decimal SD = 8m;       // Í¸Ã÷¶È²î
+        // Arrange - æ¨¡æ‹Ÿä¸¥é‡æ±¡æŸ“çš„åŸå¸‚æ°´ä½“
+        decimal SD = 8m;       // é€æ˜åº¦å·®
         decimal depth = 80m;
-        decimal DO = 0.15m;    // ÈÜ½âÑõµÍ
-        decimal NH3N = 18.0m;  // °±µª¸ß
+        decimal DO = 0.15m;    // æº¶è§£æ°§ä½
+        decimal NH3N = 18.0m;  // æ°¨æ°®é«˜
         bool isClear = false;
 
         // Act
@@ -614,18 +614,18 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, result.BlackOdorousClass);
         Assert.Equal(3, result.Factors.Count);
-        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, f.Item2));
+        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, f.Item2));
     }
 
     [Fact]
     public void IntegrationTest_ShallowClearPond()
     {
-        // Arrange - Ä£ÄâÇ³¶øÇåµÄ³ØÌÁ
+        // Arrange - æ¨¡æ‹Ÿæµ…è€Œæ¸…çš„æ± å¡˜
         decimal SD = 18m;
-        decimal depth = 20m;   // Ë®Éî²»×ã25cm
-        bool isClear = true;   // Çå³º¼ûµ×
+        decimal depth = 20m;   // æ°´æ·±ä¸è¶³25cm
+        bool isClear = true;   // æ¸…æ¾ˆè§åº•
         decimal DO = 6.0m;
         decimal NH3N = 3.0m;
 
@@ -634,17 +634,17 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, result.BlackOdorousClass);
-        Assert.Contains(result.Factors, f => f.Item1 == "Í¸Ã÷¶È" && f.Item2 == BlackOdorousClass.²»ºÚ³ô);
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, result.BlackOdorousClass);
+        Assert.Contains(result.Factors, f => f.Item1 == "é€æ˜åº¦" && f.Item2 == BlackOdorousClass.ä¸é»‘è‡­);
     }
 
     [Fact]
     public void IntegrationTest_ShallowTurbidPond()
     {
-        // Arrange - Ä£ÄâÇ³¶ø»ë×ÇµÄ³ØÌÁ
-        decimal SD = 5m;       // Í¸Ã÷¶È < depth * 0.4
-        decimal depth = 20m;   // Ë®Éî²»×ã25cm
-        bool isClear = false;  // ²»Çå³º
+        // Arrange - æ¨¡æ‹Ÿæµ…è€Œæµ‘æµŠçš„æ± å¡˜
+        decimal SD = 5m;       // é€æ˜åº¦ < depth * 0.4
+        decimal depth = 20m;   // æ°´æ·±ä¸è¶³25cm
+        bool isClear = false;  // ä¸æ¸…æ¾ˆ
         decimal DO = 6.0m;
         decimal NH3N = 3.0m;
 
@@ -653,19 +653,19 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "Í¸Ã÷¶È");
+        var sdFactor = result.Factors.FirstOrDefault(f => f.Item1 == "é€æ˜åº¦");
         Assert.NotEqual(default, sdFactor);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, sdFactor.Item2);
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, sdFactor.Item2);
     }
 
     [Fact]
     public void IntegrationTest_BorderlineMildBlackOdorous()
     {
-        // Arrange - Ä£Äâ±ß½çÇá¶ÈºÚ³ôË®Ìå
-        decimal SD = 12m;      // Çá¶ÈºÚ³ô
+        // Arrange - æ¨¡æ‹Ÿè¾¹ç•Œè½»åº¦é»‘è‡­æ°´ä½“
+        decimal SD = 12m;      // è½»åº¦é»‘è‡­
         decimal depth = 100m;
-        decimal DO = 1.5m;     // Çá¶ÈºÚ³ô
-        decimal NH3N = 9.0m;   // Çá¶ÈºÚ³ô
+        decimal DO = 1.5m;     // è½»åº¦é»‘è‡­
+        decimal NH3N = 9.0m;   // è½»åº¦é»‘è‡­
         bool isClear = false;
 
         // Act
@@ -673,19 +673,19 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, result.BlackOdorousClass);
         Assert.Equal(3, result.Factors.Count);
-        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, f.Item2));
+        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, f.Item2));
     }
 
     [Fact]
     public void IntegrationTest_ImprovingWaterQuality()
     {
-        // Arrange - Ä£Äâ¸ÄÉÆÖĞµÄË®ÖÊ£¨²¿·ÖÖ¸±êºÃ×ª£©
-        decimal SD = 12m;      // Çá¶ÈºÚ³ô
+        // Arrange - æ¨¡æ‹Ÿæ”¹å–„ä¸­çš„æ°´è´¨ï¼ˆéƒ¨åˆ†æŒ‡æ ‡å¥½è½¬ï¼‰
+        decimal SD = 12m;      // è½»åº¦é»‘è‡­
         decimal depth = 50m;
-        decimal DO = 3.0m;     // ²»ºÚ³ô£¨ÒÑ¸ÄÉÆ£©
-        decimal NH3N = 9.0m;   // Çá¶ÈºÚ³ô
+        decimal DO = 3.0m;     // ä¸é»‘è‡­ï¼ˆå·²æ”¹å–„ï¼‰
+        decimal NH3N = 9.0m;   // è½»åº¦é»‘è‡­
         bool isClear = false;
 
         // Act
@@ -693,19 +693,19 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.Çá¶ÈºÚ³ô, result.BlackOdorousClass);
-        Assert.Contains(result.Factors, f => f.Item1 == "ÈÜ½âÑõ" && f.Item2 == BlackOdorousClass.²»ºÚ³ô);
-        Assert.Contains(result.Factors, f => f.Item1 == "Í¸Ã÷¶È" && f.Item2 == BlackOdorousClass.Çá¶ÈºÚ³ô);
+        Assert.Equal(BlackOdorousClass.è½»åº¦é»‘è‡­, result.BlackOdorousClass);
+        Assert.Contains(result.Factors, f => f.Item1 == "æº¶è§£æ°§" && f.Item2 == BlackOdorousClass.ä¸é»‘è‡­);
+        Assert.Contains(result.Factors, f => f.Item1 == "é€æ˜åº¦" && f.Item2 == BlackOdorousClass.è½»åº¦é»‘è‡­);
     }
 
     [Fact]
     public void IntegrationTest_OnlyOneFactorSevere()
     {
-        // Arrange - Ö»ÓĞÒ»¸öÒò×ÓÖØ¶ÈºÚ³ô
-        decimal SD = 30m;      // ²»ºÚ³ô
+        // Arrange - åªæœ‰ä¸€ä¸ªå› å­é‡åº¦é»‘è‡­
+        decimal SD = 30m;      // ä¸é»‘è‡­
         decimal depth = 50m;
-        decimal DO = 5.0m;     // ²»ºÚ³ô
-        decimal NH3N = 20.0m;  // ÖØ¶ÈºÚ³ô
+        decimal DO = 5.0m;     // ä¸é»‘è‡­
+        decimal NH3N = 20.0m;  // é‡åº¦é»‘è‡­
         bool isClear = false;
 
         // Act
@@ -713,17 +713,17 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, result.BlackOdorousClass);
     }
 
     [Fact]
     public void IntegrationTest_ExtremeValues()
     {
-        // Arrange - ¼«¶ËÖµ²âÊÔ
-        decimal SD = 10000m;    // ¼«´óÍ¸Ã÷¶È
-        decimal depth = 10000m; // ¼«ÉîË®Ìå
-        decimal DO = 100m;      // ¼«¸ßÈÜ½âÑõ
-        decimal NH3N = 0.001m;  // ¼«µÍ°±µª
+        // Arrange - æç«¯å€¼æµ‹è¯•
+        decimal SD = 10000m;    // æå¤§é€æ˜åº¦
+        decimal depth = 10000m; // ææ·±æ°´ä½“
+        decimal DO = 100m;      // æé«˜æº¶è§£æ°§
+        decimal NH3N = 0.001m;  // æä½æ°¨æ°®
         bool isClear = false;
 
         // Act
@@ -731,13 +731,13 @@ public class CityServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(BlackOdorousClass.²»ºÚ³ô, result.BlackOdorousClass);
-        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.²»ºÚ³ô, f.Item2));
+        Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, result.BlackOdorousClass);
+        Assert.All(result.Factors, f => Assert.Equal(BlackOdorousClass.ä¸é»‘è‡­, f.Item2));
     }
 
     #endregion
 
-    #region EvaluateResult ½á¹¹²âÊÔ
+    #region EvaluateResult ç»“æ„æµ‹è¯•
 
     [Fact]
     public void GetBlackOdorousClass_AlwaysReturnsNonNullResult()
@@ -772,9 +772,9 @@ public class CityServiceTests
         var result = CityService.GetBlackOdorousClass(SD, DO, NH3N, depth, isClear);
 
         // Assert
-        Assert.Contains(result.Factors, f => f.Item1 == "Í¸Ã÷¶È");
-        Assert.Contains(result.Factors, f => f.Item1 == "ÈÜ½âÑõ");
-        Assert.Contains(result.Factors, f => f.Item1 == "°±µª");
+        Assert.Contains(result.Factors, f => f.Item1 == "é€æ˜åº¦");
+        Assert.Contains(result.Factors, f => f.Item1 == "æº¶è§£æ°§");
+        Assert.Contains(result.Factors, f => f.Item1 == "æ°¨æ°®");
     }
 
     [Fact]
@@ -800,10 +800,10 @@ public class CityServiceTests
     public void GetBlackOdorousClass_BlackOdorousClassMatchesMaxFactor()
     {
         // Arrange
-        decimal SD = 15m;      // Çá¶ÈºÚ³ô
+        decimal SD = 15m;      // è½»åº¦é»‘è‡­
         decimal depth = 50m;
-        decimal DO = 0.1m;     // ÖØ¶ÈºÚ³ô
-        decimal NH3N = 5.0m;   // ²»ºÚ³ô
+        decimal DO = 0.1m;     // é‡åº¦é»‘è‡­
+        decimal NH3N = 5.0m;   // ä¸é»‘è‡­
         bool isClear = false;
 
         // Act
@@ -812,7 +812,7 @@ public class CityServiceTests
         // Assert
         var maxClass = result.Factors.Select(f => f.Item2).Max();
         Assert.Equal(maxClass, result.BlackOdorousClass);
-        Assert.Equal(BlackOdorousClass.ÖØ¶ÈºÚ³ô, result.BlackOdorousClass);
+        Assert.Equal(BlackOdorousClass.é‡åº¦é»‘è‡­, result.BlackOdorousClass);
     }
 
     #endregion

@@ -5,7 +5,7 @@ using Silence.Water.SurfaceWater.Services;
 namespace Silence.Water.Test.SurfaceWater.Services;
 
 /// <summary>
-/// µØ±íË®ÖÊÁ¿±ê×¼·şÎñÀàµÄµ¥Ôª²âÊÔ
+/// åœ°è¡¨æ°´è´¨é‡æ ‡å‡†æœåŠ¡ç±»çš„å•å…ƒæµ‹è¯•
 /// </summary>
 public class StandardServiceTests
 {
@@ -15,7 +15,7 @@ public class StandardServiceTests
     public void GetFactorClass_WithNegativeValue_ReturnsNull()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.pHÖµ;
+        var factor = SurfaceWaterFactor.pHå€¼;
         var value = -1m;
 
         // Act
@@ -29,23 +29,23 @@ public class StandardServiceTests
     public void GetFactorClass_WithNonTable1Factor_ThrowsNotImplementedException()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.ÁòËáÑÎ; // ±í2Ö¸±ê
+        var factor = SurfaceWaterFactor.ç¡«é…¸ç›; // è¡¨2æŒ‡æ ‡
         var value = 100m;
 
         // Act & Assert
         var exception = Assert.Throws<NotImplementedException>(() =>
             StandardService.GetFactorClass(factor, value));
-        Assert.Contains("·Ç±í1Ö¸±êË®ÖÊÀà±ğÔİ²»Ö§³ÖÅĞ¶Ï", exception.Message);
+        Assert.Contains("éè¡¨1æŒ‡æ ‡æ°´è´¨ç±»åˆ«æš‚ä¸æ”¯æŒåˆ¤æ–­", exception.Message);
     }
 
     [Theory]
-    [InlineData(SurfaceWaterFactor.pHÖµ, 7.0, WaterQualityClass.¢ñ)] // pH ÔÚÕı³£·¶Î§ÄÚ
-    [InlineData(SurfaceWaterFactor.ÈÜ½âÑõ, 7.5, WaterQualityClass.¢ñ)] // ÈÜ½âÑõ >= 7.5 Îª ¢ñÀà
-    [InlineData(SurfaceWaterFactor.ÈÜ½âÑõ, 6.0, WaterQualityClass.¢ò)] // ÈÜ½âÑõ 6-7.5 Îª ¢òÀà
-    [InlineData(SurfaceWaterFactor.ÈÜ½âÑõ, 5.0, WaterQualityClass.¢ó)] // ÈÜ½âÑõ 5-6 Îª ¢óÀà
-    [InlineData(SurfaceWaterFactor.ÈÜ½âÑõ, 3.0, WaterQualityClass.¢ô)] // ÈÜ½âÑõ 3-5 Îª ¢ôÀà
-    [InlineData(SurfaceWaterFactor.ÈÜ½âÑõ, 2.0, WaterQualityClass.¢õ)] // ÈÜ½âÑõ 2-3 Îª ¢õÀà
-    [InlineData(SurfaceWaterFactor.ÈÜ½âÑõ, 1.0, WaterQualityClass.ÁÓ¢õ)] // ÈÜ½âÑõ < 2 Îª ÁÓ¢õÀà
+    [InlineData(SurfaceWaterFactor.pHå€¼, 7.0, WaterQualityClass.â… )] // pH åœ¨æ­£å¸¸èŒƒå›´å†…
+    [InlineData(SurfaceWaterFactor.æº¶è§£æ°§, 7.5, WaterQualityClass.â… )] // æº¶è§£æ°§ >= 7.5 ä¸º â… ç±»
+    [InlineData(SurfaceWaterFactor.æº¶è§£æ°§, 6.0, WaterQualityClass.â…¡)] // æº¶è§£æ°§ 6-7.5 ä¸º â…¡ç±»
+    [InlineData(SurfaceWaterFactor.æº¶è§£æ°§, 5.0, WaterQualityClass.â…¢)] // æº¶è§£æ°§ 5-6 ä¸º â…¢ç±»
+    [InlineData(SurfaceWaterFactor.æº¶è§£æ°§, 3.0, WaterQualityClass.â…£)] // æº¶è§£æ°§ 3-5 ä¸º â…£ç±»
+    [InlineData(SurfaceWaterFactor.æº¶è§£æ°§, 2.0, WaterQualityClass.â…¤)] // æº¶è§£æ°§ 2-3 ä¸º â…¤ç±»
+    [InlineData(SurfaceWaterFactor.æº¶è§£æ°§, 1.0, WaterQualityClass.åŠ£â…¤)] // æº¶è§£æ°§ < 2 ä¸º åŠ£â…¤ç±»
     public void GetFactorClass_WithValidValue_ReturnsCorrectClass(
         SurfaceWaterFactor factor,
         decimal value,
@@ -59,12 +59,12 @@ public class StandardServiceTests
     }
 
     [Theory]
-    [InlineData(SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 2.0, WaterQualityClass.¢ñ)]
-    [InlineData(SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 4.0, WaterQualityClass.¢ò)]
-    [InlineData(SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 6.0, WaterQualityClass.¢ó)]
-    [InlineData(SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 10.0, WaterQualityClass.¢ô)]
-    [InlineData(SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 15.0, WaterQualityClass.¢õ)]
-    [InlineData(SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 20.0, WaterQualityClass.ÁÓ¢õ)]
+    [InlineData(SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 2.0, WaterQualityClass.â… )]
+    [InlineData(SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 4.0, WaterQualityClass.â…¡)]
+    [InlineData(SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 6.0, WaterQualityClass.â…¢)]
+    [InlineData(SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 10.0, WaterQualityClass.â…£)]
+    [InlineData(SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 15.0, WaterQualityClass.â…¤)]
+    [InlineData(SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 20.0, WaterQualityClass.åŠ£â…¤)]
     public void GetFactorClass_WithHighMnIndex_ReturnsCorrectClass(
         SurfaceWaterFactor factor,
         decimal value,
@@ -78,12 +78,12 @@ public class StandardServiceTests
     }
 
     [Theory]
-    [InlineData(SurfaceWaterFactor.°±µª, 0.15, WaterQualityClass.¢ñ)]
-    [InlineData(SurfaceWaterFactor.°±µª, 0.5, WaterQualityClass.¢ò)]
-    [InlineData(SurfaceWaterFactor.°±µª, 1.0, WaterQualityClass.¢ó)]
-    [InlineData(SurfaceWaterFactor.°±µª, 1.5, WaterQualityClass.¢ô)]
-    [InlineData(SurfaceWaterFactor.°±µª, 2.0, WaterQualityClass.¢õ)]
-    [InlineData(SurfaceWaterFactor.°±µª, 3.0, WaterQualityClass.ÁÓ¢õ)]
+    [InlineData(SurfaceWaterFactor.æ°¨æ°®, 0.15, WaterQualityClass.â… )]
+    [InlineData(SurfaceWaterFactor.æ°¨æ°®, 0.5, WaterQualityClass.â…¡)]
+    [InlineData(SurfaceWaterFactor.æ°¨æ°®, 1.0, WaterQualityClass.â…¢)]
+    [InlineData(SurfaceWaterFactor.æ°¨æ°®, 1.5, WaterQualityClass.â…£)]
+    [InlineData(SurfaceWaterFactor.æ°¨æ°®, 2.0, WaterQualityClass.â…¤)]
+    [InlineData(SurfaceWaterFactor.æ°¨æ°®, 3.0, WaterQualityClass.åŠ£â…¤)]
     public void GetFactorClass_WithAmmoniaNitrogen_ReturnsCorrectClass(
         SurfaceWaterFactor factor,
         decimal value,
@@ -97,12 +97,12 @@ public class StandardServiceTests
     }
 
     [Theory]
-    [InlineData(SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷, 0.02, WaterQualityClass.¢ñ)]
-    [InlineData(SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷, 0.1, WaterQualityClass.¢ò)]
-    [InlineData(SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷, 0.2, WaterQualityClass.¢ó)]
-    [InlineData(SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷, 0.3, WaterQualityClass.¢ô)]
-    [InlineData(SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷, 0.4, WaterQualityClass.¢õ)]
-    [InlineData(SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷, 0.5, WaterQualityClass.ÁÓ¢õ)]
+    [InlineData(SurfaceWaterFactor.æ€»ç£·_æ²³æµ, 0.02, WaterQualityClass.â… )]
+    [InlineData(SurfaceWaterFactor.æ€»ç£·_æ²³æµ, 0.1, WaterQualityClass.â…¡)]
+    [InlineData(SurfaceWaterFactor.æ€»ç£·_æ²³æµ, 0.2, WaterQualityClass.â…¢)]
+    [InlineData(SurfaceWaterFactor.æ€»ç£·_æ²³æµ, 0.3, WaterQualityClass.â…£)]
+    [InlineData(SurfaceWaterFactor.æ€»ç£·_æ²³æµ, 0.4, WaterQualityClass.â…¤)]
+    [InlineData(SurfaceWaterFactor.æ€»ç£·_æ²³æµ, 0.5, WaterQualityClass.åŠ£â…¤)]
     public void GetFactorClass_WithTotalPhosphorusRiver_ReturnsCorrectClass(
         SurfaceWaterFactor factor,
         decimal value,
@@ -119,7 +119,7 @@ public class StandardServiceTests
     public void GetFactorClass_WithDifferentVersion_UsesCorrectStandard()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.pHÖµ;
+        var factor = SurfaceWaterFactor.pHå€¼;
         var value = 7.0m;
 
         // Act
@@ -135,23 +135,23 @@ public class StandardServiceTests
     [Fact]
     public void GetFactorClass_WithBoundaryValue_ReturnsCorrectClass()
     {
-        // Arrange - ²âÊÔ±ß½çÖµ
-        var factor = SurfaceWaterFactor.ÈÜ½âÑõ;
-        var boundaryValue = 7.5m; // ¢ñÀàµÄÁÙ½çÖµ
+        // Arrange - æµ‹è¯•è¾¹ç•Œå€¼
+        var factor = SurfaceWaterFactor.æº¶è§£æ°§;
+        var boundaryValue = 7.5m; // â… ç±»çš„ä¸´ç•Œå€¼
 
         // Act
         var result = StandardService.GetFactorClass(factor, boundaryValue);
 
         // Assert
         Assert.NotNull(result);
-        Assert.True(result == WaterQualityClass.¢ñ || result == WaterQualityClass.¢ò);
+        Assert.True(result == WaterQualityClass.â…  || result == WaterQualityClass.â…¡);
     }
 
     [Fact]
     public void GetFactorClass_WithZeroValue_ReturnsValidClass()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.°±µª;
+        var factor = SurfaceWaterFactor.æ°¨æ°®;
         var value = 0m;
 
         // Act
@@ -159,7 +159,7 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(WaterQualityClass.¢ñ, result);
+        Assert.Equal(WaterQualityClass.â… , result);
     }
 
     #endregion
@@ -186,10 +186,10 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.pHÖµ, 7.0m },
-            { SurfaceWaterFactor.ÈÜ½âÑõ, 7.5m },
-            { SurfaceWaterFactor.°±µª, 0.15m },
-            { SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 2.0m }
+            { SurfaceWaterFactor.pHå€¼, 7.0m },
+            { SurfaceWaterFactor.æº¶è§£æ°§, 7.5m },
+            { SurfaceWaterFactor.æ°¨æ°®, 0.15m },
+            { SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 2.0m }
         };
 
         // Act
@@ -207,8 +207,8 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.pHÖµ, -1m },
-            { SurfaceWaterFactor.ÈÜ½âÑõ, 7.5m }
+            { SurfaceWaterFactor.pHå€¼, -1m },
+            { SurfaceWaterFactor.æº¶è§£æ°§, 7.5m }
         };
 
         // Act
@@ -217,8 +217,8 @@ public class StandardServiceTests
         // Assert
         Assert.NotNull(result);
         Assert.Equal(2, result.Count);
-        Assert.Null(result[SurfaceWaterFactor.pHÖµ]);
-        Assert.NotNull(result[SurfaceWaterFactor.ÈÜ½âÑõ]);
+        Assert.Null(result[SurfaceWaterFactor.pHå€¼]);
+        Assert.NotNull(result[SurfaceWaterFactor.æº¶è§£æ°§]);
     }
 
     [Fact]
@@ -227,9 +227,9 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.ÈÜ½âÑõ, 7.5m },      // ¢ñÀà
-            { SurfaceWaterFactor.°±µª, 1.0m },        // ¢óÀà
-            { SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 15.0m } // ¢õÀà
+            { SurfaceWaterFactor.æº¶è§£æ°§, 7.5m },      // â… ç±»
+            { SurfaceWaterFactor.æ°¨æ°®, 1.0m },        // â…¢ç±»
+            { SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 15.0m } // â…¤ç±»
         };
 
         // Act
@@ -238,8 +238,8 @@ public class StandardServiceTests
         // Assert
         Assert.NotNull(result);
         Assert.Equal(3, result.Count);
-        Assert.True(result[SurfaceWaterFactor.ÈÜ½âÑõ] <= WaterQualityClass.¢ò);
-        Assert.True(result[SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı] >= WaterQualityClass.¢ô);
+        Assert.True(result[SurfaceWaterFactor.æº¶è§£æ°§] <= WaterQualityClass.â…¡);
+        Assert.True(result[SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°] >= WaterQualityClass.â…£);
     }
 
     #endregion
@@ -265,7 +265,7 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.ÈÜ½âÑõ, 7.5m }
+            { SurfaceWaterFactor.æº¶è§£æ°§, 7.5m }
         };
 
         // Act
@@ -273,7 +273,7 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.True(result <= WaterQualityClass.¢ò);
+        Assert.True(result <= WaterQualityClass.â…¡);
     }
 
     [Fact]
@@ -282,9 +282,9 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.ÈÜ½âÑõ, 7.5m },      // ¢ñÀà
-            { SurfaceWaterFactor.°±µª, 0.5m },        // ¢òÀà
-            { SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 20.0m } // ÁÓ¢õÀà
+            { SurfaceWaterFactor.æº¶è§£æ°§, 7.5m },      // â… ç±»
+            { SurfaceWaterFactor.æ°¨æ°®, 0.5m },        // â…¡ç±»
+            { SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 20.0m } // åŠ£â…¤ç±»
         };
 
         // Act
@@ -292,7 +292,7 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(WaterQualityClass.ÁÓ¢õ, result);
+        Assert.Equal(WaterQualityClass.åŠ£â…¤, result);
     }
 
     [Fact]
@@ -301,9 +301,9 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.ÈÜ½âÑõ, 8.0m },
-            { SurfaceWaterFactor.°±µª, 0.15m },
-            { SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 2.0m }
+            { SurfaceWaterFactor.æº¶è§£æ°§, 8.0m },
+            { SurfaceWaterFactor.æ°¨æ°®, 0.15m },
+            { SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 2.0m }
         };
 
         // Act
@@ -311,7 +311,7 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.True(result <= WaterQualityClass.¢ò);
+        Assert.True(result <= WaterQualityClass.â…¡);
     }
 
     [Fact]
@@ -320,8 +320,8 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.pHÖµ, -1m },
-            { SurfaceWaterFactor.ÈÜ½âÑõ, 7.5m }
+            { SurfaceWaterFactor.pHå€¼, -1m },
+            { SurfaceWaterFactor.æº¶è§£æ°§, 7.5m }
         };
 
         // Act
@@ -337,8 +337,8 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.ÈÜ½âÑõ, 7.5m },
-            { SurfaceWaterFactor.°±µª, 1.0m }
+            { SurfaceWaterFactor.æº¶è§£æ°§, 7.5m },
+            { SurfaceWaterFactor.æ°¨æ°®, 1.0m }
         };
 
         // Act
@@ -358,7 +358,7 @@ public class StandardServiceTests
     public void GetFactorStandard_WithValidTable1Factor_ReturnsStandard()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.pHÖµ;
+        var factor = SurfaceWaterFactor.pHå€¼;
 
         // Act
         var result = StandardService.GetFactorStandard(factor);
@@ -374,33 +374,33 @@ public class StandardServiceTests
     [Fact]
     public void GetFactorStandard_WithAllTable1Factors_ReturnsStandards()
     {
-        // Arrange - ²âÊÔËùÓĞ±í1Òò×Ó
+        // Arrange - æµ‹è¯•æ‰€æœ‰è¡¨1å› å­
         var table1Factors = new[]
         {
-            SurfaceWaterFactor.pHÖµ,
-            SurfaceWaterFactor.ÈÜ½âÑõ,
-            SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı,
-            SurfaceWaterFactor.»¯Ñ§ĞèÑõÁ¿,
-            SurfaceWaterFactor.ÎåÈÕÉú»¯ĞèÑõÁ¿,
-            SurfaceWaterFactor.°±µª,
-            SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷,
-            SurfaceWaterFactor.×ÜÁ×_ºş¿â,
-            SurfaceWaterFactor.×Üµª,
-            SurfaceWaterFactor.Í­,
-            SurfaceWaterFactor.Ğ¿,
-            SurfaceWaterFactor.·ú»¯Îï,
-            SurfaceWaterFactor.Îø,
-            SurfaceWaterFactor.Éé,
-            SurfaceWaterFactor.¹¯,
-            SurfaceWaterFactor.ïÓ,
-            SurfaceWaterFactor.Áù¼Û¸õ,
-            SurfaceWaterFactor.Ç¦,
-            SurfaceWaterFactor.Çè»¯Îï,
-            SurfaceWaterFactor.»Ó·¢·Ó,
-            SurfaceWaterFactor.Ê¯ÓÍÀà,
-            SurfaceWaterFactor.ÒõÀë×Ó±íÃæ»îĞÔ¼Á,
-            SurfaceWaterFactor.Áò»¯Îï,
-            SurfaceWaterFactor.·à´ó³¦¾úÈº
+            SurfaceWaterFactor.pHå€¼,
+            SurfaceWaterFactor.æº¶è§£æ°§,
+            SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°,
+            SurfaceWaterFactor.åŒ–å­¦éœ€æ°§é‡,
+            SurfaceWaterFactor.äº”æ—¥ç”ŸåŒ–éœ€æ°§é‡,
+            SurfaceWaterFactor.æ°¨æ°®,
+            SurfaceWaterFactor.æ€»ç£·_æ²³æµ,
+            SurfaceWaterFactor.æ€»ç£·_æ¹–åº“,
+            SurfaceWaterFactor.æ€»æ°®,
+            SurfaceWaterFactor.é“œ,
+            SurfaceWaterFactor.é”Œ,
+            SurfaceWaterFactor.æ°ŸåŒ–ç‰©,
+            SurfaceWaterFactor.ç¡’,
+            SurfaceWaterFactor.ç ·,
+            SurfaceWaterFactor.æ±,
+            SurfaceWaterFactor.é•‰,
+            SurfaceWaterFactor.å…­ä»·é“¬,
+            SurfaceWaterFactor.é“…,
+            SurfaceWaterFactor.æ°°åŒ–ç‰©,
+            SurfaceWaterFactor.æŒ¥å‘é…š,
+            SurfaceWaterFactor.çŸ³æ²¹ç±»,
+            SurfaceWaterFactor.é˜´ç¦»å­è¡¨é¢æ´»æ€§å‰‚,
+            SurfaceWaterFactor.ç¡«åŒ–ç‰©,
+            SurfaceWaterFactor.ç²ªå¤§è‚ èŒç¾¤
         };
 
         // Act & Assert
@@ -416,13 +416,13 @@ public class StandardServiceTests
     public void GetFactorStandard_WithNonTable1Factor_ReturnsStandardOrNull()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.ÁòËáÑÎ; // ±í2Ö¸±ê
+        var factor = SurfaceWaterFactor.ç¡«é…¸ç›; // è¡¨2æŒ‡æ ‡
 
         // Act
         var result = StandardService.GetFactorStandard(factor);
 
-        // Assert - ¸ù¾İ×¢ÊÍ£¬·Ç±í1Ö¸±ê·µ»Ø¢ñÀà´ú±í±ê×¼Öµ»ònull
-        // ¾ßÌåĞĞÎªÈ¡¾öÓÚÊı¾İÎÄ¼şÖĞÊÇ·ñ°üº¬¸ÃÖ¸±ê
+        // Assert - æ ¹æ®æ³¨é‡Šï¼Œéè¡¨1æŒ‡æ ‡è¿”å›â… ç±»ä»£è¡¨æ ‡å‡†å€¼æˆ–null
+        // å…·ä½“è¡Œä¸ºå–å†³äºæ•°æ®æ–‡ä»¶ä¸­æ˜¯å¦åŒ…å«è¯¥æŒ‡æ ‡
         Assert.True(result == null || result.Factor == factor);
     }
 
@@ -430,7 +430,7 @@ public class StandardServiceTests
     public void GetFactorStandard_WithDifferentVersion_ReturnsVersionSpecificStandard()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.pHÖµ;
+        var factor = SurfaceWaterFactor.pHå€¼;
 
         // Act
         var result = StandardService.GetFactorStandard(
@@ -446,7 +446,7 @@ public class StandardServiceTests
     public void GetFactorStandard_ChecksStandardProperties()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.ÈÜ½âÑõ;
+        var factor = SurfaceWaterFactor.æº¶è§£æ°§;
 
         // Act
         var result = StandardService.GetFactorStandard(factor);
@@ -459,9 +459,9 @@ public class StandardServiceTests
         Assert.NotNull(result.Limits);
         Assert.NotEmpty(result.Limits);
         
-        // ¼ì²éÏŞÖµÁĞ±íÖĞÊÇ·ñ°üº¬¸÷¸öË®ÖÊÀà±ğ
+        // æ£€æŸ¥é™å€¼åˆ—è¡¨ä¸­æ˜¯å¦åŒ…å«å„ä¸ªæ°´è´¨ç±»åˆ«
         var classesInLimits = result.Limits.Select(l => l.WaterQualityClass).ToList();
-        Assert.Contains(WaterQualityClass.¢ñ, classesInLimits);
+        Assert.Contains(WaterQualityClass.â… , classesInLimits);
     }
 
     #endregion
@@ -472,21 +472,21 @@ public class StandardServiceTests
     public void GetFactorClass_WithVeryLargeValue_ReturnsWorstClass()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı;
+        var factor = SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°;
         var value = decimal.MaxValue;
 
         // Act
         var result = StandardService.GetFactorClass(factor, value);
 
         // Assert
-        Assert.Equal(WaterQualityClass.ÁÓ¢õ, result);
+        Assert.Equal(WaterQualityClass.åŠ£â…¤, result);
     }
 
     [Fact]
     public void GetFactorClass_WithVerySmallPositiveValue_ReturnsClass1()
     {
         // Arrange
-        var factor = SurfaceWaterFactor.°±µª;
+        var factor = SurfaceWaterFactor.æ°¨æ°®;
         var value = 0.01m;
 
         // Act
@@ -494,14 +494,14 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(WaterQualityClass.¢ñ, result);
+        Assert.Equal(WaterQualityClass.â… , result);
     }
 
     [Theory]
-    [InlineData(SurfaceWaterFactor.pHÖµ)]
-    [InlineData(SurfaceWaterFactor.ÈÜ½âÑõ)]
-    [InlineData(SurfaceWaterFactor.°±µª)]
-    [InlineData(SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷)]
+    [InlineData(SurfaceWaterFactor.pHå€¼)]
+    [InlineData(SurfaceWaterFactor.æº¶è§£æ°§)]
+    [InlineData(SurfaceWaterFactor.æ°¨æ°®)]
+    [InlineData(SurfaceWaterFactor.æ€»ç£·_æ²³æµ)]
     public void GetFactorStandard_WithTable1Factors_AlwaysReturnsNonNull(SurfaceWaterFactor factor)
     {
         // Act
@@ -518,7 +518,7 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.ÁòËáÑÎ, 100m } // ±í2Ö¸±ê
+            { SurfaceWaterFactor.ç¡«é…¸ç›, 100m } // è¡¨2æŒ‡æ ‡
         };
 
         // Act & Assert
@@ -532,7 +532,7 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.ÁòËáÑÎ, 100m } // ±í2Ö¸±ê
+            { SurfaceWaterFactor.ç¡«é…¸ç›, 100m } // è¡¨2æŒ‡æ ‡
         };
 
         // Act & Assert
@@ -547,14 +547,14 @@ public class StandardServiceTests
     [Fact]
     public void IntegrationTest_CompleteWaterQualityEvaluation()
     {
-        // Arrange - Ä£ÄâÒ»¸öÍêÕûµÄË®ÖÊÆÀ¹À³¡¾°
+        // Arrange - æ¨¡æ‹Ÿä¸€ä¸ªå®Œæ•´çš„æ°´è´¨è¯„ä¼°åœºæ™¯
         var waterSample = new Dictionary<SurfaceWaterFactor, decimal>
         {
-            { SurfaceWaterFactor.pHÖµ, 7.2m },
-            { SurfaceWaterFactor.ÈÜ½âÑõ, 6.5m },
-            { SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı, 3.5m },
-            { SurfaceWaterFactor.°±µª, 0.8m },
-            { SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷, 0.15m }
+            { SurfaceWaterFactor.pHå€¼, 7.2m },
+            { SurfaceWaterFactor.æº¶è§£æ°§, 6.5m },
+            { SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°, 3.5m },
+            { SurfaceWaterFactor.æ°¨æ°®, 0.8m },
+            { SurfaceWaterFactor.æ€»ç£·_æ²³æµ, 0.15m }
         };
 
         // Act
@@ -567,39 +567,39 @@ public class StandardServiceTests
         Assert.All(factorClasses.Values, v => Assert.NotNull(v));
         
         Assert.NotNull(overallClass);
-        Assert.InRange((int)overallClass, 1, 6); // Ë®ÖÊÀà±ğÓ¦ÔÚ¢ñµ½ÁÓ¢õÖ®¼ä
+        Assert.InRange((int)overallClass, 1, 6); // æ°´è´¨ç±»åˆ«åº”åœ¨â… åˆ°åŠ£â…¤ä¹‹é—´
     }
 
     [Fact]
     public void IntegrationTest_CompareRiverAndLakePhosphorus()
     {
-        // Arrange - ±È½ÏºÓÁ÷ºÍºş¿âµÄ×ÜÁ×±ê×¼
+        // Arrange - æ¯”è¾ƒæ²³æµå’Œæ¹–åº“çš„æ€»ç£·æ ‡å‡†
         var value = 0.1m;
 
         // Act
-        var riverClass = StandardService.GetFactorClass(SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷, value);
-        var lakeClass = StandardService.GetFactorClass(SurfaceWaterFactor.×ÜÁ×_ºş¿â, value);
+        var riverClass = StandardService.GetFactorClass(SurfaceWaterFactor.æ€»ç£·_æ²³æµ, value);
+        var lakeClass = StandardService.GetFactorClass(SurfaceWaterFactor.æ€»ç£·_æ¹–åº“, value);
 
-        // Assert - ºÓÁ÷ºÍºş¿âµÄ×ÜÁ×±ê×¼²»Í¬
+        // Assert - æ²³æµå’Œæ¹–åº“çš„æ€»ç£·æ ‡å‡†ä¸åŒ
         Assert.NotNull(riverClass);
         Assert.NotNull(lakeClass);
-        // ¾ßÌåµÄÀà±ğ¹ØÏµÈ¡¾öÓÚ±ê×¼Êı¾İÎÄ¼ş
+        // å…·ä½“çš„ç±»åˆ«å…³ç³»å–å†³äºæ ‡å‡†æ•°æ®æ–‡ä»¶
     }
 
     [Fact]
     public void IntegrationTest_AllTable1FactorsHaveStandards()
     {
-        // Arrange - ÑéÖ¤ËùÓĞ±í1Òò×Ó¶¼ÓĞ±ê×¼Êı¾İ
+        // Arrange - éªŒè¯æ‰€æœ‰è¡¨1å› å­éƒ½æœ‰æ ‡å‡†æ•°æ®
         var table1Factors = new[]
         {
-            SurfaceWaterFactor.pHÖµ, SurfaceWaterFactor.ÈÜ½âÑõ, SurfaceWaterFactor.¸ßÃÌËáÑÎÖ¸Êı,
-            SurfaceWaterFactor.»¯Ñ§ĞèÑõÁ¿, SurfaceWaterFactor.ÎåÈÕÉú»¯ĞèÑõÁ¿, SurfaceWaterFactor.°±µª,
-            SurfaceWaterFactor.×ÜÁ×_ºÓÁ÷, SurfaceWaterFactor.×ÜÁ×_ºş¿â, SurfaceWaterFactor.×Üµª,
-            SurfaceWaterFactor.Í­, SurfaceWaterFactor.Ğ¿, SurfaceWaterFactor.·ú»¯Îï,
-            SurfaceWaterFactor.Îø, SurfaceWaterFactor.Éé, SurfaceWaterFactor.¹¯,
-            SurfaceWaterFactor.ïÓ, SurfaceWaterFactor.Áù¼Û¸õ, SurfaceWaterFactor.Ç¦,
-            SurfaceWaterFactor.Çè»¯Îï, SurfaceWaterFactor.»Ó·¢·Ó, SurfaceWaterFactor.Ê¯ÓÍÀà,
-            SurfaceWaterFactor.ÒõÀë×Ó±íÃæ»îĞÔ¼Á, SurfaceWaterFactor.Áò»¯Îï, SurfaceWaterFactor.·à´ó³¦¾úÈº
+            SurfaceWaterFactor.pHå€¼, SurfaceWaterFactor.æº¶è§£æ°§, SurfaceWaterFactor.é«˜é”°é…¸ç›æŒ‡æ•°,
+            SurfaceWaterFactor.åŒ–å­¦éœ€æ°§é‡, SurfaceWaterFactor.äº”æ—¥ç”ŸåŒ–éœ€æ°§é‡, SurfaceWaterFactor.æ°¨æ°®,
+            SurfaceWaterFactor.æ€»ç£·_æ²³æµ, SurfaceWaterFactor.æ€»ç£·_æ¹–åº“, SurfaceWaterFactor.æ€»æ°®,
+            SurfaceWaterFactor.é“œ, SurfaceWaterFactor.é”Œ, SurfaceWaterFactor.æ°ŸåŒ–ç‰©,
+            SurfaceWaterFactor.ç¡’, SurfaceWaterFactor.ç ·, SurfaceWaterFactor.æ±,
+            SurfaceWaterFactor.é•‰, SurfaceWaterFactor.å…­ä»·é“¬, SurfaceWaterFactor.é“…,
+            SurfaceWaterFactor.æ°°åŒ–ç‰©, SurfaceWaterFactor.æŒ¥å‘é…š, SurfaceWaterFactor.çŸ³æ²¹ç±»,
+            SurfaceWaterFactor.é˜´ç¦»å­è¡¨é¢æ´»æ€§å‰‚, SurfaceWaterFactor.ç¡«åŒ–ç‰©, SurfaceWaterFactor.ç²ªå¤§è‚ èŒç¾¤
         };
 
         // Act & Assert

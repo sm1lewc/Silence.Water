@@ -4,6 +4,16 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Title>环保方向水相关服务</Title>
+        <Authors>Silence</Authors>
+        <PackageProjectUrl>https://github.com/sm1lewc/Silence.Water</PackageProjectUrl>
+        <PackageIcon>Water.png</PackageIcon>
+        <RepositoryUrl>https://github.com/sm1lewc/Silence.Water</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,6 +21,18 @@
       <EmbeddedResource Include="Groundwater\Data\GBT_14848_2017.json" />
       <None Remove="SurfaceWater\Data\GB_3838_2002.json" />
       <EmbeddedResource Include="SurfaceWater\Data\GB_3838_2002.json" />
+      <None Include="..\LICENSE.txt">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="..\README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Update="Water.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ using Silence.Water.Groundwater.Services;
 namespace Silence.Water.Test.Groundwater.Services;
 
 /// <summary>
-/// µØÏÂË®ÖÊÁ¿±ê×¼·şÎñÀàµÄµ¥Ôª²âÊÔ
+/// åœ°ä¸‹æ°´è´¨é‡æ ‡å‡†æœåŠ¡ç±»çš„å•å…ƒæµ‹è¯•
 /// </summary>
 public class StandardServiceTests
 {
@@ -27,9 +27,9 @@ public class StandardServiceTests
 
     [Theory]
     [InlineData(GroundwaterFactor.pH, 7.0)]
-    [InlineData(GroundwaterFactor.°±µª, 0.02)]
-    [InlineData(GroundwaterFactor.ÏõËáÑÎ, 2.0)]
-    [InlineData(GroundwaterFactor.×ÜÓ²¶È, 150)]
+    [InlineData(GroundwaterFactor.æ°¨æ°®, 0.02)]
+    [InlineData(GroundwaterFactor.ç¡é…¸ç›, 2.0)]
+    [InlineData(GroundwaterFactor.æ€»ç¡¬åº¦, 150)]
     public void GetFactorClass_WithValidNumericValue_ReturnsClass(
         GroundwaterFactor factor,
         decimal value)
@@ -39,15 +39,15 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.InRange((int)result, 1, 5); // µØÏÂË®Àà±ğ´Ó¢ñµ½¢õ
+        Assert.InRange((int)result, 1, 5); // åœ°ä¸‹æ°´ç±»åˆ«ä»â… åˆ°â…¤
     }
 
     [Theory]
-    [InlineData(GroundwaterFactor.°±µª, 0.01, WaterQualityClass.¢ñ)] // ÓÅÁ¼Ë®ÖÊ
-    [InlineData(GroundwaterFactor.°±µª, 0.1, WaterQualityClass.¢ò)]
-    [InlineData(GroundwaterFactor.°±µª, 0.5, WaterQualityClass.¢ó)]
-    [InlineData(GroundwaterFactor.°±µª, 1.5, WaterQualityClass.¢ô)]
-    [InlineData(GroundwaterFactor.°±µª, 2.0, WaterQualityClass.¢õ)] // ²îË®ÖÊ
+    [InlineData(GroundwaterFactor.æ°¨æ°®, 0.01, WaterQualityClass.â… )] // ä¼˜è‰¯æ°´è´¨
+    [InlineData(GroundwaterFactor.æ°¨æ°®, 0.1, WaterQualityClass.â…¡)]
+    [InlineData(GroundwaterFactor.æ°¨æ°®, 0.5, WaterQualityClass.â…¢)]
+    [InlineData(GroundwaterFactor.æ°¨æ°®, 1.5, WaterQualityClass.â…£)]
+    [InlineData(GroundwaterFactor.æ°¨æ°®, 2.0, WaterQualityClass.â…¤)] // å·®æ°´è´¨
     public void GetFactorClass_WithAmmoniaNitrogen_ReturnsCorrectClass(
         GroundwaterFactor factor,
         decimal value,
@@ -61,11 +61,11 @@ public class StandardServiceTests
     }
 
     [Theory]
-    [InlineData(GroundwaterFactor.ÏõËáÑÎ, 2.0, WaterQualityClass.¢ñ)]
-    [InlineData(GroundwaterFactor.ÏõËáÑÎ, 5.0, WaterQualityClass.¢ò)]
-    [InlineData(GroundwaterFactor.ÏõËáÑÎ, 20.0, WaterQualityClass.¢ó)]
-    [InlineData(GroundwaterFactor.ÏõËáÑÎ, 25.0, WaterQualityClass.¢ô)]
-    [InlineData(GroundwaterFactor.ÏõËáÑÎ, 35.0, WaterQualityClass.¢õ)]
+    [InlineData(GroundwaterFactor.ç¡é…¸ç›, 2.0, WaterQualityClass.â… )]
+    [InlineData(GroundwaterFactor.ç¡é…¸ç›, 5.0, WaterQualityClass.â…¡)]
+    [InlineData(GroundwaterFactor.ç¡é…¸ç›, 20.0, WaterQualityClass.â…¢)]
+    [InlineData(GroundwaterFactor.ç¡é…¸ç›, 25.0, WaterQualityClass.â…£)]
+    [InlineData(GroundwaterFactor.ç¡é…¸ç›, 35.0, WaterQualityClass.â…¤)]
     public void GetFactorClass_WithNitrate_ReturnsCorrectClass(
         GroundwaterFactor factor,
         decimal value,
@@ -82,7 +82,7 @@ public class StandardServiceTests
     public void GetFactorClass_WithZeroValue_ReturnsClass1()
     {
         // Arrange
-        var factor = GroundwaterFactor.°±µª;
+        var factor = GroundwaterFactor.æ°¨æ°®;
         object value = 0m;
 
         // Act
@@ -90,21 +90,21 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(WaterQualityClass.¢ñ, result);
+        Assert.Equal(WaterQualityClass.â… , result);
     }
 
     [Fact]
     public void GetFactorClass_WithVeryLargeValue_ReturnsClass5()
     {
         // Arrange
-        var factor = GroundwaterFactor.°±µª;
+        var factor = GroundwaterFactor.æ°¨æ°®;
         object value = 999999m;
 
         // Act
         var result = StandardService.GetFactorClass(factor, value);
 
         // Assert
-        Assert.Equal(WaterQualityClass.¢õ, result);
+        Assert.Equal(WaterQualityClass.â…¤, result);
     }
 
     #endregion
@@ -115,17 +115,17 @@ public class StandardServiceTests
     [InlineData("0.01L")]
     [InlineData("0.001L")]
     [InlineData("5L")]
-    [InlineData("0.5l")] // Ğ¡Ğ´L
+    [InlineData("0.5l")] // å°å†™L
     public void GetFactorClass_WithDetectionLimitValue_ReturnsClass1(string value)
     {
         // Arrange
-        var factor = GroundwaterFactor.¹¯;
+        var factor = GroundwaterFactor.æ±;
 
         // Act
         var result = StandardService.GetFactorClass(factor, value);
 
         // Assert
-        Assert.Equal(WaterQualityClass.¢ñ, result);
+        Assert.Equal(WaterQualityClass.â… , result);
     }
 
     #endregion
@@ -136,7 +136,7 @@ public class StandardServiceTests
     public void GetFactorClass_WithNonExistentFactor_ReturnsNull()
     {
         // Arrange
-        // Ê¹ÓÃÒ»¸ö¿ÉÄÜ²»ÔÚ±ê×¼Êı¾İÖĞµÄÒò×Ó
+        // ä½¿ç”¨ä¸€ä¸ªå¯èƒ½ä¸åœ¨æ ‡å‡†æ•°æ®ä¸­çš„å› å­
         var factor = (GroundwaterFactor)9999;
         object value = 1.0m;
 
@@ -151,7 +151,7 @@ public class StandardServiceTests
     public void GetFactorClass_WithInvalidTextValue_ReturnsNull()
     {
         // Arrange
-        var factor = GroundwaterFactor.°±µª;
+        var factor = GroundwaterFactor.æ°¨æ°®;
         object value = "invalid text value";
 
         // Act
@@ -199,7 +199,7 @@ public class StandardServiceTests
     public void GetFactorClass_WithDifferentNumericTypes_WorksCorrectly(object value)
     {
         // Arrange
-        var factor = GroundwaterFactor.°±µª;
+        var factor = GroundwaterFactor.æ°¨æ°®;
 
         // Act
         var result = StandardService.GetFactorClass(factor, value);
@@ -213,19 +213,19 @@ public class StandardServiceTests
     #region GetFactorClass Tests - Table 1 Factors
 
     [Theory]
-    [InlineData(GroundwaterFactor.É«)]
-    [InlineData(GroundwaterFactor.ĞáºÍÎ¶)]
-    [InlineData(GroundwaterFactor.»ë×Ç¶È)]
+    [InlineData(GroundwaterFactor.è‰²)]
+    [InlineData(GroundwaterFactor.å—…å’Œå‘³)]
+    [InlineData(GroundwaterFactor.æµ‘æµŠåº¦)]
     [InlineData(GroundwaterFactor.pH)]
-    [InlineData(GroundwaterFactor.×ÜÓ²¶È)]
-    [InlineData(GroundwaterFactor.ÈÜ½âĞÔ×Ü¹ÌÌå)]
-    [InlineData(GroundwaterFactor.°±µª)]
-    [InlineData(GroundwaterFactor.ÏõËáÑÎ)]
-    [InlineData(GroundwaterFactor.·ú»¯Îï)]
-    [InlineData(GroundwaterFactor.¹¯)]
-    [InlineData(GroundwaterFactor.Éé)]
-    [InlineData(GroundwaterFactor.ïÓ)]
-    [InlineData(GroundwaterFactor.Ç¦)]
+    [InlineData(GroundwaterFactor.æ€»ç¡¬åº¦)]
+    [InlineData(GroundwaterFactor.æº¶è§£æ€§æ€»å›ºä½“)]
+    [InlineData(GroundwaterFactor.æ°¨æ°®)]
+    [InlineData(GroundwaterFactor.ç¡é…¸ç›)]
+    [InlineData(GroundwaterFactor.æ°ŸåŒ–ç‰©)]
+    [InlineData(GroundwaterFactor.æ±)]
+    [InlineData(GroundwaterFactor.ç ·)]
+    [InlineData(GroundwaterFactor.é•‰)]
+    [InlineData(GroundwaterFactor.é“…)]
     public void GetFactorClass_WithTable1Factors_ReturnsValidClass(GroundwaterFactor factor)
     {
         // Arrange
@@ -234,7 +234,7 @@ public class StandardServiceTests
         // Act
         var result = StandardService.GetFactorClass(factor, value);
 
-        // Assert - Ó¦¸Ã·µ»ØÓĞĞ§µÄË®ÖÊÀà±ğ»ònull
+        // Assert - åº”è¯¥è¿”å›æœ‰æ•ˆçš„æ°´è´¨ç±»åˆ«æˆ–null
         if (result.HasValue)
         {
             Assert.InRange((int)result.Value, 1, 5);
@@ -246,18 +246,18 @@ public class StandardServiceTests
     #region GetFactorClass Tests - Table 2 Factors
 
     [Theory]
-    [InlineData(GroundwaterFactor.îë)]
-    [InlineData(GroundwaterFactor.Åğ)]
-    [InlineData(GroundwaterFactor.Ìà)]
-    [InlineData(GroundwaterFactor.±µ)]
-    [InlineData(GroundwaterFactor.Äø)]
-    [InlineData(GroundwaterFactor.îÜ)]
-    [InlineData(GroundwaterFactor.îâ)]
-    [InlineData(GroundwaterFactor.Èıäå¼×Íé)]
-    [InlineData(GroundwaterFactor.ÂÈÒÒÏ©)]
-    [InlineData(GroundwaterFactor.ÈıÂÈÒÒÏ©)]
-    [InlineData(GroundwaterFactor.±½)]
-    [InlineData(GroundwaterFactor.¼×±½)]
+    [InlineData(GroundwaterFactor.é“)]
+    [InlineData(GroundwaterFactor.ç¡¼)]
+    [InlineData(GroundwaterFactor.é”‘)]
+    [InlineData(GroundwaterFactor.é’¡)]
+    [InlineData(GroundwaterFactor.é•)]
+    [InlineData(GroundwaterFactor.é’´)]
+    [InlineData(GroundwaterFactor.é’¼)]
+    [InlineData(GroundwaterFactor.ä¸‰æº´ç”²çƒ·)]
+    [InlineData(GroundwaterFactor.æ°¯ä¹™çƒ¯)]
+    [InlineData(GroundwaterFactor.ä¸‰æ°¯ä¹™çƒ¯)]
+    [InlineData(GroundwaterFactor.è‹¯)]
+    [InlineData(GroundwaterFactor.ç”²è‹¯)]
     public void GetFactorClass_WithTable2Factors_ReturnsValidClass(GroundwaterFactor factor)
     {
         // Arrange
@@ -298,9 +298,9 @@ public class StandardServiceTests
         var values = new Dictionary<GroundwaterFactor, object>
         {
             { GroundwaterFactor.pH, 7.0m },
-            { GroundwaterFactor.°±µª, 0.02m },
-            { GroundwaterFactor.ÏõËáÑÎ, 2.0m },
-            { GroundwaterFactor.×ÜÓ²¶È, 150m }
+            { GroundwaterFactor.æ°¨æ°®, 0.02m },
+            { GroundwaterFactor.ç¡é…¸ç›, 2.0m },
+            { GroundwaterFactor.æ€»ç¡¬åº¦, 150m }
         };
 
         // Act
@@ -318,9 +318,9 @@ public class StandardServiceTests
         var values = new Dictionary<GroundwaterFactor, object>
         {
             { GroundwaterFactor.pH, 7.0m },
-            { GroundwaterFactor.¹¯, "0.001L" },
-            { GroundwaterFactor.°±µª, "Î´¼ì³ö" },
-            { GroundwaterFactor.ÏõËáÑÎ, 2.0 }
+            { GroundwaterFactor.æ±, "0.001L" },
+            { GroundwaterFactor.æ°¨æ°®, "æœªæ£€å‡º" },
+            { GroundwaterFactor.ç¡é…¸ç›, 2.0 }
         };
 
         // Act
@@ -329,7 +329,7 @@ public class StandardServiceTests
         // Assert
         Assert.NotNull(result);
         Assert.Equal(4, result.Count);
-        Assert.Contains(result.Values, v => v == WaterQualityClass.¢ñ);
+        Assert.Contains(result.Values, v => v == WaterQualityClass.â… );
     }
 
     [Fact]
@@ -339,7 +339,7 @@ public class StandardServiceTests
         var values = new Dictionary<GroundwaterFactor, object>
         {
             { GroundwaterFactor.pH, -1m },
-            { GroundwaterFactor.°±µª, 0.02m }
+            { GroundwaterFactor.æ°¨æ°®, 0.02m }
         };
 
         // Act
@@ -349,7 +349,7 @@ public class StandardServiceTests
         Assert.NotNull(result);
         Assert.Equal(2, result.Count);
         Assert.Null(result[GroundwaterFactor.pH]);
-        Assert.NotNull(result[GroundwaterFactor.°±µª]);
+        Assert.NotNull(result[GroundwaterFactor.æ°¨æ°®]);
     }
 
     [Fact]
@@ -358,9 +358,9 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.¹¯, "0.001L" },
-            { GroundwaterFactor.Éé, "0.005L" },
-            { GroundwaterFactor.ïÓ, "0.0001L" }
+            { GroundwaterFactor.æ±, "0.001L" },
+            { GroundwaterFactor.ç ·, "0.005L" },
+            { GroundwaterFactor.é•‰, "0.0001L" }
         };
 
         // Act
@@ -369,7 +369,7 @@ public class StandardServiceTests
         // Assert
         Assert.NotNull(result);
         Assert.Equal(3, result.Count);
-        Assert.All(result.Values, v => Assert.Equal(WaterQualityClass.¢ñ, v));
+        Assert.All(result.Values, v => Assert.Equal(WaterQualityClass.â… , v));
     }
 
     [Fact]
@@ -378,9 +378,9 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.°±µª, 0.01m },  // ¢ñÀà
-            { GroundwaterFactor.ÏõËáÑÎ, 20.0m }, // ¢óÀà
-            { GroundwaterFactor.×ÜÓ²¶È, 1000m }  // ½Ï²î
+            { GroundwaterFactor.æ°¨æ°®, 0.01m },  // â… ç±»
+            { GroundwaterFactor.ç¡é…¸ç›, 20.0m }, // â…¢ç±»
+            { GroundwaterFactor.æ€»ç¡¬åº¦, 1000m }  // è¾ƒå·®
         };
 
         // Act
@@ -389,7 +389,7 @@ public class StandardServiceTests
         // Assert
         Assert.NotNull(result);
         Assert.Equal(3, result.Count);
-        Assert.Contains(result.Values, v => v == WaterQualityClass.¢ñ);
+        Assert.Contains(result.Values, v => v == WaterQualityClass.â… );
     }
 
     #endregion
@@ -415,7 +415,7 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.°±µª, 0.02m }
+            { GroundwaterFactor.æ°¨æ°®, 0.02m }
         };
 
         // Act
@@ -431,9 +431,9 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.°±µª, 0.01m },  // ¢ñÀà
-            { GroundwaterFactor.ÏõËáÑÎ, 5.0m },  // ¢òÀà
-            { GroundwaterFactor.×ÜÓ²¶È, 1500m }  // ¢õÀà
+            { GroundwaterFactor.æ°¨æ°®, 0.01m },  // â… ç±»
+            { GroundwaterFactor.ç¡é…¸ç›, 5.0m },  // â…¡ç±»
+            { GroundwaterFactor.æ€»ç¡¬åº¦, 1500m }  // â…¤ç±»
         };
 
         // Act
@@ -441,7 +441,7 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.True(result >= WaterQualityClass.¢ô);
+        Assert.True(result >= WaterQualityClass.â…£);
     }
 
     [Fact]
@@ -450,9 +450,9 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.°±µª, "Î´¼ì³ö" },
-            { GroundwaterFactor.¹¯, "0.001L" },
-            { GroundwaterFactor.ÏõËáÑÎ, 2.0m }
+            { GroundwaterFactor.æ°¨æ°®, "æœªæ£€å‡º" },
+            { GroundwaterFactor.æ±, "0.001L" },
+            { GroundwaterFactor.ç¡é…¸ç›, 2.0m }
         };
 
         // Act
@@ -460,7 +460,7 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.True(result <= WaterQualityClass.¢ò);
+        Assert.True(result <= WaterQualityClass.â…¡);
     }
 
     [Fact]
@@ -469,8 +469,8 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.pH, -1m },      // ·µ»Ønull
-            { GroundwaterFactor.°±µª, 0.1m }    // ¢òÀà
+            { GroundwaterFactor.pH, -1m },      // è¿”å›null
+            { GroundwaterFactor.æ°¨æ°®, 0.1m }    // â…¡ç±»
         };
 
         // Act
@@ -478,7 +478,7 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(WaterQualityClass.¢ò, result);
+        Assert.Equal(WaterQualityClass.â…¡, result);
     }
 
     [Fact]
@@ -487,8 +487,8 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.°±µª, 0.02m },
-            { GroundwaterFactor.ÏõËáÑÎ, 2.0m }
+            { GroundwaterFactor.æ°¨æ°®, 0.02m },
+            { GroundwaterFactor.ç¡é…¸ç›, 2.0m }
         };
 
         // Act
@@ -506,8 +506,8 @@ public class StandardServiceTests
         // Arrange
         var values = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.¹¯, "0.001L" },  // ¢ñÀà
-            { GroundwaterFactor.°±µª, 1.5m }     // ¢ôÀà
+            { GroundwaterFactor.æ±, "0.001L" },  // â… ç±»
+            { GroundwaterFactor.æ°¨æ°®, 1.5m }     // â…£ç±»
         };
 
         // Act
@@ -515,7 +515,7 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.True(result >= WaterQualityClass.¢ô);
+        Assert.True(result >= WaterQualityClass.â…£);
     }
 
     #endregion
@@ -541,13 +541,13 @@ public class StandardServiceTests
 
     [Theory]
     [InlineData(GroundwaterFactor.pH)]
-    [InlineData(GroundwaterFactor.°±µª)]
-    [InlineData(GroundwaterFactor.ÏõËáÑÎ)]
-    [InlineData(GroundwaterFactor.×ÜÓ²¶È)]
-    [InlineData(GroundwaterFactor.¹¯)]
-    [InlineData(GroundwaterFactor.Éé)]
-    [InlineData(GroundwaterFactor.ïÓ)]
-    [InlineData(GroundwaterFactor.Ç¦)]
+    [InlineData(GroundwaterFactor.æ°¨æ°®)]
+    [InlineData(GroundwaterFactor.ç¡é…¸ç›)]
+    [InlineData(GroundwaterFactor.æ€»ç¡¬åº¦)]
+    [InlineData(GroundwaterFactor.æ±)]
+    [InlineData(GroundwaterFactor.ç ·)]
+    [InlineData(GroundwaterFactor.é•‰)]
+    [InlineData(GroundwaterFactor.é“…)]
     public void GetFactorStandard_WithTable1Factors_ReturnsStandards(GroundwaterFactor factor)
     {
         // Act
@@ -563,7 +563,7 @@ public class StandardServiceTests
     public void GetFactorStandard_ChecksStandardProperties()
     {
         // Arrange
-        var factor = GroundwaterFactor.°±µª;
+        var factor = GroundwaterFactor.æ°¨æ°®;
 
         // Act
         var result = StandardService.GetFactorStandard(factor);
@@ -576,9 +576,9 @@ public class StandardServiceTests
         Assert.NotNull(result.Limits);
         Assert.NotEmpty(result.Limits);
         
-        // ¼ì²éÏŞÖµÁĞ±íÖĞÊÇ·ñ°üº¬¸÷¸öË®ÖÊÀà±ğ
+        // æ£€æŸ¥é™å€¼åˆ—è¡¨ä¸­æ˜¯å¦åŒ…å«å„ä¸ªæ°´è´¨ç±»åˆ«
         var classesInLimits = result.Limits.Select(l => l.WaterQualityClass).ToList();
-        Assert.Contains(WaterQualityClass.¢ñ, classesInLimits);
+        Assert.Contains(WaterQualityClass.â… , classesInLimits);
     }
 
     [Fact]
@@ -614,14 +614,14 @@ public class StandardServiceTests
     public void GetFactorStandard_VerifyUnitInformation()
     {
         // Arrange
-        var factor = GroundwaterFactor.°±µª;
+        var factor = GroundwaterFactor.æ°¨æ°®;
 
         // Act
         var result = StandardService.GetFactorStandard(factor);
 
         // Assert
         Assert.NotNull(result);
-        // µ¥Î»¿ÉÄÜÎªnull»òÓĞÖµ£¬È¡¾öÓÚ±ê×¼Êı¾İ
+        // å•ä½å¯èƒ½ä¸ºnullæˆ–æœ‰å€¼ï¼Œå–å†³äºæ ‡å‡†æ•°æ®
         if (result.Unit != null)
         {
             Assert.NotEmpty(result.Unit);
@@ -635,15 +635,15 @@ public class StandardServiceTests
     [Fact]
     public void IntegrationTest_CompleteGroundwaterQualityEvaluation()
     {
-        // Arrange - Ä£ÄâÒ»¸öÍêÕûµÄµØÏÂË®ÖÊÆÀ¹À³¡¾°
+        // Arrange - æ¨¡æ‹Ÿä¸€ä¸ªå®Œæ•´çš„åœ°ä¸‹æ°´è´¨è¯„ä¼°åœºæ™¯
         var waterSample = new Dictionary<GroundwaterFactor, object>
         {
             { GroundwaterFactor.pH, 7.2m },
-            { GroundwaterFactor.°±µª, 0.05m },
-            { GroundwaterFactor.ÏõËáÑÎ, 3.0m },
-            { GroundwaterFactor.×ÜÓ²¶È, 200m },
-            { GroundwaterFactor.¹¯, "0.001L" },
-            { GroundwaterFactor.Éé, "Î´¼ì³ö" }
+            { GroundwaterFactor.æ°¨æ°®, 0.05m },
+            { GroundwaterFactor.ç¡é…¸ç›, 3.0m },
+            { GroundwaterFactor.æ€»ç¡¬åº¦, 200m },
+            { GroundwaterFactor.æ±, "0.001L" },
+            { GroundwaterFactor.ç ·, "æœªæ£€å‡º" }
         };
 
         // Act
@@ -655,7 +655,7 @@ public class StandardServiceTests
         Assert.Equal(6, factorClasses.Count);
         
         Assert.NotNull(overallClass);
-        Assert.InRange((int)overallClass, 1, 5); // µØÏÂË®Àà±ğ´Ó¢ñµ½¢õ
+        Assert.InRange((int)overallClass, 1, 5); // åœ°ä¸‹æ°´ç±»åˆ«ä»â… åˆ°â…¤
     }
 
     [Fact]
@@ -664,10 +664,10 @@ public class StandardServiceTests
         // Arrange
         var waterSample = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.°±µª, 0.1m },
-            { GroundwaterFactor.¹¯, "0.001L" },
-            { GroundwaterFactor.Éé, "Î´¼ì³ö" },
-            { GroundwaterFactor.ÏõËáÑÎ, 10.0m }
+            { GroundwaterFactor.æ°¨æ°®, 0.1m },
+            { GroundwaterFactor.æ±, "0.001L" },
+            { GroundwaterFactor.ç ·, "æœªæ£€å‡º" },
+            { GroundwaterFactor.ç¡é…¸ç›, 10.0m }
         };
 
         // Act
@@ -677,7 +677,7 @@ public class StandardServiceTests
         // Assert
         Assert.NotNull(factorClasses);
         Assert.Equal(4, factorClasses.Count);
-        Assert.Contains(factorClasses.Values, v => v == WaterQualityClass.¢ñ);
+        Assert.Contains(factorClasses.Values, v => v == WaterQualityClass.â… );
         
         Assert.NotNull(overallClass);
     }
@@ -685,22 +685,22 @@ public class StandardServiceTests
     [Fact]
     public void IntegrationTest_AllTable1FactorsHaveStandards()
     {
-        // Arrange - ÑéÖ¤ËùÓĞ±í1Òò×Ó¶¼ÓĞ±ê×¼Êı¾İ
+        // Arrange - éªŒè¯æ‰€æœ‰è¡¨1å› å­éƒ½æœ‰æ ‡å‡†æ•°æ®
         var table1Factors = new[]
         {
-            GroundwaterFactor.É«, GroundwaterFactor.ĞáºÍÎ¶, GroundwaterFactor.»ë×Ç¶È,
-            GroundwaterFactor.ÈâÑÛ¿É¼ûÎï, GroundwaterFactor.pH, GroundwaterFactor.×ÜÓ²¶È,
-            GroundwaterFactor.ÈÜ½âĞÔ×Ü¹ÌÌå, GroundwaterFactor.ÁòËáÑÎ, GroundwaterFactor.ÂÈ»¯Îï,
-            GroundwaterFactor.Ìú, GroundwaterFactor.ÃÌ, GroundwaterFactor.Í­,
-            GroundwaterFactor.Ğ¿, GroundwaterFactor.ÂÁ, GroundwaterFactor.»Ó·¢ĞÔ·ÓÀà,
-            GroundwaterFactor.ÒõÀë×Ó±íÃæ»îĞÔ¼Á, GroundwaterFactor.ºÄÑõÁ¿, GroundwaterFactor.°±µª,
-            GroundwaterFactor.Áò»¯Îï, GroundwaterFactor.ÄÆ, GroundwaterFactor.×Ü´ó³¦¾úÈº,
-            GroundwaterFactor.¾úÂä×ÜÊı, GroundwaterFactor.ÑÇÏõËáÑÎ, GroundwaterFactor.ÏõËáÑÎ,
-            GroundwaterFactor.Çè»¯Îï, GroundwaterFactor.·ú»¯Îï, GroundwaterFactor.µâ»¯Îï,
-            GroundwaterFactor.¹¯, GroundwaterFactor.Éé, GroundwaterFactor.Îø,
-            GroundwaterFactor.ïÓ, GroundwaterFactor.Áù¼Û¸õ, GroundwaterFactor.Ç¦,
-            GroundwaterFactor.ÈıÂÈ¼×Íé, GroundwaterFactor.ËÄÂÈ»¯Ì¼, GroundwaterFactor.±½,
-            GroundwaterFactor.¼×±½, GroundwaterFactor.×Ü¦Á·ÅÉäĞÔ, GroundwaterFactor.×Ü¦Â·ÅÉäĞÔ
+            GroundwaterFactor.è‰², GroundwaterFactor.å—…å’Œå‘³, GroundwaterFactor.æµ‘æµŠåº¦,
+            GroundwaterFactor.è‚‰çœ¼å¯è§ç‰©, GroundwaterFactor.pH, GroundwaterFactor.æ€»ç¡¬åº¦,
+            GroundwaterFactor.æº¶è§£æ€§æ€»å›ºä½“, GroundwaterFactor.ç¡«é…¸ç›, GroundwaterFactor.æ°¯åŒ–ç‰©,
+            GroundwaterFactor.é“, GroundwaterFactor.é”°, GroundwaterFactor.é“œ,
+            GroundwaterFactor.é”Œ, GroundwaterFactor.é“, GroundwaterFactor.æŒ¥å‘æ€§é…šç±»,
+            GroundwaterFactor.é˜´ç¦»å­è¡¨é¢æ´»æ€§å‰‚, GroundwaterFactor.è€—æ°§é‡, GroundwaterFactor.æ°¨æ°®,
+            GroundwaterFactor.ç¡«åŒ–ç‰©, GroundwaterFactor.é’ , GroundwaterFactor.æ€»å¤§è‚ èŒç¾¤,
+            GroundwaterFactor.èŒè½æ€»æ•°, GroundwaterFactor.äºšç¡é…¸ç›, GroundwaterFactor.ç¡é…¸ç›,
+            GroundwaterFactor.æ°°åŒ–ç‰©, GroundwaterFactor.æ°ŸåŒ–ç‰©, GroundwaterFactor.ç¢˜åŒ–ç‰©,
+            GroundwaterFactor.æ±, GroundwaterFactor.ç ·, GroundwaterFactor.ç¡’,
+            GroundwaterFactor.é•‰, GroundwaterFactor.å…­ä»·é“¬, GroundwaterFactor.é“…,
+            GroundwaterFactor.ä¸‰æ°¯ç”²çƒ·, GroundwaterFactor.å››æ°¯åŒ–ç¢³, GroundwaterFactor.è‹¯,
+            GroundwaterFactor.ç”²è‹¯, GroundwaterFactor.æ€»Î±æ”¾å°„æ€§, GroundwaterFactor.æ€»Î²æ”¾å°„æ€§
         };
 
         // Act & Assert
@@ -716,19 +716,19 @@ public class StandardServiceTests
             }
         }
 
-        // ÖÁÉÙÓ¦¸ÃÓĞÒ»Ğ©±ê×¼Êı¾İ
-        Assert.True(standardsFound > 0, "ÖÁÉÙÓ¦¸ÃÓĞÒ»Ğ©±í1Òò×ÓµÄ±ê×¼Êı¾İ");
+        // è‡³å°‘åº”è¯¥æœ‰ä¸€äº›æ ‡å‡†æ•°æ®
+        Assert.True(standardsFound > 0, "è‡³å°‘åº”è¯¥æœ‰ä¸€äº›è¡¨1å› å­çš„æ ‡å‡†æ•°æ®");
     }
 
     [Fact]
     public void IntegrationTest_CompareDetectionLimitFormats()
     {
-        // Arrange - ²âÊÔ²»Í¬¸ñÊ½µÄ¼ì³öÏŞÖµ
+        // Arrange - æµ‹è¯•ä¸åŒæ ¼å¼çš„æ£€å‡ºé™å€¼
         var detectionLimitFormats = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.¹¯, "0.001L" },      // ´óĞ´L
-            { GroundwaterFactor.Éé, "0.005l" },      // Ğ¡Ğ´l
-            { GroundwaterFactor.ÒõÀë×Ó±íÃæ»îĞÔ¼Á, "Î´¼ì³ö" },       // Î´¼ì³öÎÄ±¾
+            { GroundwaterFactor.æ±, "0.001L" },      // å¤§å†™L
+            { GroundwaterFactor.ç ·, "0.005l" },      // å°å†™l
+            { GroundwaterFactor.é˜´ç¦»å­è¡¨é¢æ´»æ€§å‰‚, "æœªæ£€å‡º" },       // æœªæ£€å‡ºæ–‡æœ¬
         };
 
         // Act
@@ -736,19 +736,19 @@ public class StandardServiceTests
 
         // Assert
         Assert.NotNull(factorClasses);
-        Assert.All(factorClasses.Values, v => Assert.Equal(WaterQualityClass.¢ñ, v));
+        Assert.All(factorClasses.Values, v => Assert.Equal(WaterQualityClass.â… , v));
     }
 
     [Fact]
     public void IntegrationTest_EdgeCaseValues()
     {
-        // Arrange - ²âÊÔ±ß½çÖµºÍÌØÊâÇé¿ö
+        // Arrange - æµ‹è¯•è¾¹ç•Œå€¼å’Œç‰¹æ®Šæƒ…å†µ
         var edgeCases = new Dictionary<GroundwaterFactor, object>
         {
-            { GroundwaterFactor.°±µª, 0m },          // ÁãÖµ
-            { GroundwaterFactor.ÏõËáÑÎ, -1m },       // ¸ºÖµ
-            { GroundwaterFactor.pH, "" },            // ¿Õ×Ö·û´®
-            { GroundwaterFactor.×ÜÓ²¶È, "invalid" }, // ÎŞĞ§ÎÄ±¾
+            { GroundwaterFactor.æ°¨æ°®, 0m },          // é›¶å€¼
+            { GroundwaterFactor.ç¡é…¸ç›, -1m },       // è´Ÿå€¼
+            { GroundwaterFactor.pH, "" },            // ç©ºå­—ç¬¦ä¸²
+            { GroundwaterFactor.æ€»ç¡¬åº¦, "invalid" }, // æ— æ•ˆæ–‡æœ¬
         };
 
         // Act
@@ -758,12 +758,12 @@ public class StandardServiceTests
         Assert.NotNull(factorClasses);
         Assert.Equal(4, factorClasses.Count);
         
-        // ÁãÖµÓ¦¸Ã·µ»Ø¢ñÀà
-        Assert.Equal(WaterQualityClass.¢ñ, factorClasses[GroundwaterFactor.°±µª]);
+        // é›¶å€¼åº”è¯¥è¿”å›â… ç±»
+        Assert.Equal(WaterQualityClass.â… , factorClasses[GroundwaterFactor.æ°¨æ°®]);
         
-        // ¸ºÖµºÍÎŞĞ§ÖµÓ¦¸Ã·µ»Ønull
-        Assert.Null(factorClasses[GroundwaterFactor.ÏõËáÑÎ]);
-        Assert.Null(factorClasses[GroundwaterFactor.×ÜÓ²¶È]);
+        // è´Ÿå€¼å’Œæ— æ•ˆå€¼åº”è¯¥è¿”å›null
+        Assert.Null(factorClasses[GroundwaterFactor.ç¡é…¸ç›]);
+        Assert.Null(factorClasses[GroundwaterFactor.æ€»ç¡¬åº¦]);
     }
 
     #endregion
@@ -774,14 +774,14 @@ public class StandardServiceTests
     public void GetFactorStandard_CalledMultipleTimes_PerformsConsistently()
     {
         // Arrange
-        var factor = GroundwaterFactor.°±µª;
+        var factor = GroundwaterFactor.æ°¨æ°®;
 
-        // Act - ¶à´Îµ÷ÓÃ
+        // Act - å¤šæ¬¡è°ƒç”¨
         var result1 = StandardService.GetFactorStandard(factor);
         var result2 = StandardService.GetFactorStandard(factor);
         var result3 = StandardService.GetFactorStandard(factor);
 
-        // Assert - ½á¹ûÓ¦¸ÃÒ»ÖÂ
+        // Assert - ç»“æœåº”è¯¥ä¸€è‡´
         Assert.NotNull(result1);
         Assert.NotNull(result2);
         Assert.NotNull(result3);
@@ -793,7 +793,7 @@ public class StandardServiceTests
     public void GetFactorClass_CalledMultipleTimes_ReturnsSameResult()
     {
         // Arrange
-        var factor = GroundwaterFactor.°±µª;
+        var factor = GroundwaterFactor.æ°¨æ°®;
         object value = 0.1m;
 
         // Act
