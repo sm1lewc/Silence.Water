@@ -80,18 +80,14 @@ Console.WriteLine($"综合水质类别：{maxClass}");
 using Silence.Water.BlackOdorous.Services;
 
 // 城市黑臭水体评估
-var evaluateResult = CityService.Evaluate(
+var evaluateResult = CityService.GetBlackOdorousClass(
     SD: 15m,        // 透明度 15cm
     DO: 1.5m,       // 溶解氧 1.5 mg/L
     NH3N: 5.0m,     // 氨氮 5.0 mg/L
-    ORP: -50m       // 氧化还原电位 -50 mV
+    depth: 26m,	    // 水体深度 26 cm
+    false           // 非清澈见底
 );
 
-Console.WriteLine($"黑臭等级：{evaluateResult.Class}");
-Console.WriteLine($"透明度指标：{evaluateResult.SDClass}");
-Console.WriteLine($"溶解氧指标：{evaluateResult.DOClass}");
-Console.WriteLine($"氨氮指标：{evaluateResult.NH3NClass}");
-Console.WriteLine($"氧化还原电位指标：{evaluateResult.ORPClass}");
 ```
 
 ### 3. 获取标准限值信息
@@ -134,6 +130,7 @@ if (doStandard != null)
 - 氨氮、总磷（河流/湖库）、总氮
 - 重金属：铜、锌、硒、砷、汞、镉、六价铬、铅
 - 其他：氟化物、氰化物、挥发酚、石油类、阴离子表面活性剂、硫化物、粪大肠菌群
+- GB 3838-2002 标准所有监测指标
 
 ### 黑臭水体评估服务 (CityService)
 
@@ -141,7 +138,7 @@ if (doStandard != null)
 
 | 方法 | 说明 | 返回值 |
 |------|------|--------|
-| `Evaluate(SD, DO, NH3N, ORP)` | 综合评估黑臭水体等级 | `EvaluateResult` |
+| `GetBlackOdorousClass(SD, DO, NH3N, depth, false)` | 综合评估黑臭水体等级 | `EvaluateResult` |
 
 #### 评估参数
 
