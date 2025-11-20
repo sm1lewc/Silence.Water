@@ -85,7 +85,7 @@ var evaluateResult = CityService.GetBlackOdorousClass(
     DO: 1.5m,       // 溶解氧 1.5 mg/L
     NH3N: 5.0m,     // 氨氮 5.0 mg/L
     depth: 26m,	    // 水体深度 26 cm
-    false           // 非清澈见底
+    isClear: false  // 非清澈见底
 );
 
 ```
@@ -138,14 +138,15 @@ if (doStandard != null)
 
 | 方法 | 说明 | 返回值 |
 |------|------|--------|
-| `GetBlackOdorousClass(SD, DO, NH3N, depth, false)` | 综合评估黑臭水体等级 | `EvaluateResult` |
+| `GetBlackOdorousClass(SD, DO, NH3N, depth, isClear)` | 综合评估黑臭水体等级 | `EvaluateResult` |
 
 #### 评估参数
 
 - `SD` - 透明度 (cm)
 - `DO` - 溶解氧 (mg/L)
 - `NH3N` - 氨氮 (mg/L)
-- `ORP` - 氧化还原电位 (mV)
+- `depth` - 水深 (cm)
+- `isClear` - 是否清澈见底 (bool)
 
 ### 水质类别枚举 (WaterQualityClass)
 
