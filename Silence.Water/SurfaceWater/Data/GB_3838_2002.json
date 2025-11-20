@@ -1,0 +1,1879 @@
+﻿{
+  "pH值": {
+    "Factor": "pH值",
+    "FactorName": "pH值",
+    "Description": null,
+    "Unit": "无量纲",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "BetweenInclusive",
+        "LimitValue": "6-9"
+      }
+    ]
+  },
+  "溶解氧": {
+    "Factor": "溶解氧",
+    "FactorName": "溶解氧",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "GreaterThanOrEqual",
+        "LimitValue": "7.5"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "GreaterThanOrEqual",
+        "LimitValue": "6.0"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "GreaterThanOrEqual",
+        "LimitValue": "5.0"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "GreaterThanOrEqual",
+        "LimitValue": "3.0"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "GreaterThanOrEqual",
+        "LimitValue": "2.0"
+      }
+    ]
+  },
+  "高锰酸盐指数": {
+    "Factor": "高锰酸盐指数",
+    "FactorName": "高锰酸盐指数",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "2.0"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "4.0"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "6.0"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "10.0"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "15.0"
+      }
+    ]
+  },
+  "化学需氧量": {
+    "Factor": "化学需氧量",
+    "FactorName": "化学需氧量",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "15.0"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "15.0"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "20.0"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "30.0"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "40.0"
+      }
+    ]
+  },
+  "五日生化需氧量": {
+    "Factor": "五日生化需氧量",
+    "FactorName": "五日生化需氧量",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "3.0"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "3.0"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "4.0"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "6.0"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "10.0"
+      }
+    ]
+  },
+  "氨氮": {
+    "Factor": "氨氮",
+    "FactorName": "氨氮",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.15"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.5"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "2.0"
+      }
+    ]
+  },
+  "总磷_河流": {
+    "Factor": "总磷_河流",
+    "FactorName": "总磷",
+    "Description": "以P计",
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.3"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.4"
+      }
+    ]
+  },
+  "总磷_湖库": {
+    "Factor": "总磷_湖库",
+    "FactorName": "总磷",
+    "Description": "以P计",
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.025"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      }
+    ]
+  },
+  "总氮": {
+    "Factor": "总氮",
+    "FactorName": "总氮",
+    "Description": "湖、库，以N计",
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.5"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "2.0"
+      }
+    ]
+  },
+  "铜": {
+    "Factor": "铜",
+    "FactorName": "铜",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      }
+    ]
+  },
+  "锌": {
+    "Factor": "锌",
+    "FactorName": "锌",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "2.0"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "2.0"
+      }
+    ]
+  },
+  "氟化物": {
+    "Factor": "氟化物",
+    "FactorName": "氟化物",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.0"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.5"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1.5"
+      }
+    ]
+  },
+  "硒": {
+    "Factor": "硒",
+    "FactorName": "硒",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      }
+    ]
+  },
+  "砷": {
+    "Factor": "砷",
+    "FactorName": "砷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "汞": {
+    "Factor": "汞",
+    "FactorName": "汞",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.00005"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.00005"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.0001"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.001"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.001"
+      }
+    ]
+  },
+  "镉": {
+    "Factor": "镉",
+    "FactorName": "镉",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.001"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.005"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.005"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.005"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      }
+    ]
+  },
+  "六价铬": {
+    "Factor": "六价铬",
+    "FactorName": "铬",
+    "Description": "六价",
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "铅": {
+    "Factor": "铅",
+    "FactorName": "铅",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "氰化物": {
+    "Factor": "氰化物",
+    "FactorName": "氰化物",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.005"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      }
+    ]
+  },
+  "挥发酚": {
+    "Factor": "挥发酚",
+    "FactorName": "挥发酚",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.002"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.002"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.005"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "石油类": {
+    "Factor": "石油类",
+    "FactorName": "石油类",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1"
+      }
+    ]
+  },
+  "阴离子表面活性剂": {
+    "Factor": "阴离子表面活性剂",
+    "FactorName": "阴离子表面活性剂",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.3"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.3"
+      }
+    ]
+  },
+  "硫化物": {
+    "Factor": "硫化物",
+    "FactorName": "硫化物",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1"
+      }
+    ]
+  },
+  "粪大肠菌群": {
+    "Factor": "粪大肠菌群",
+    "FactorName": "粪大肠菌群",
+    "Description": null,
+    "Unit": "个/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "200"
+      },
+      {
+        "WaterQualityClass": "Ⅱ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "2000"
+      },
+      {
+        "WaterQualityClass": "Ⅲ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "10000"
+      },
+      {
+        "WaterQualityClass": "Ⅳ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "20000"
+      },
+      {
+        "WaterQualityClass": "Ⅴ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "40000"
+      }
+    ]
+  },
+  "硫酸盐": {
+    "Factor": "硫酸盐",
+    "FactorName": "硫酸盐",
+    "Description": "以SO42⁻",
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "250"
+      }
+    ]
+  },
+  "氯化物": {
+    "Factor": "氯化物",
+    "FactorName": "氯化物",
+    "Description": "以Cl⁻计",
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "250"
+      }
+    ]
+  },
+  "硝酸盐": {
+    "Factor": "硝酸盐",
+    "FactorName": "硝酸盐",
+    "Description": "以N计",
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "10"
+      }
+    ]
+  },
+  "铁": {
+    "Factor": "铁",
+    "FactorName": "铁",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.3"
+      }
+    ]
+  },
+  "锰": {
+    "Factor": "锰",
+    "FactorName": "锰",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "三氯甲烷": {
+    "Factor": "三氯甲烷",
+    "FactorName": "三氯甲烷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.06"
+      }
+    ]
+  },
+  "四氯化碳": {
+    "Factor": "四氯化碳",
+    "FactorName": "四氯化碳",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.002"
+      }
+    ]
+  },
+  "三溴甲烷": {
+    "Factor": "三溴甲烷",
+    "FactorName": "三溴甲烷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "二氯甲烷": {
+    "Factor": "二氯甲烷",
+    "FactorName": "二氯甲烷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      }
+    ]
+  },
+  "一_二_二氯乙烷": {
+    "Factor": "一_二_二氯乙烷",
+    "FactorName": "1,2-二氯乙烷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.03"
+      }
+    ]
+  },
+  "环氧氯丙烷": {
+    "Factor": "环氧氯丙烷",
+    "FactorName": "环氧氯丙烷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      }
+    ]
+  },
+  "氯乙烯": {
+    "Factor": "氯乙烯",
+    "FactorName": "氯乙烯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.005"
+      }
+    ]
+  },
+  "一_一_二氯乙烯": {
+    "Factor": "一_一_二氯乙烯",
+    "FactorName": "1,1-二氯乙烯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.03"
+      }
+    ]
+  },
+  "一_二_二氯乙烯": {
+    "Factor": "一_二_二氯乙烯",
+    "FactorName": "1,2-二氯乙烯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      }
+    ]
+  },
+  "三氯乙烯": {
+    "Factor": "三氯乙烯",
+    "FactorName": "三氯乙烯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.07"
+      }
+    ]
+  },
+  "四氯乙烯": {
+    "Factor": "四氯乙烯",
+    "FactorName": "四氯乙烯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.04"
+      }
+    ]
+  },
+  "氯丁二烯": {
+    "Factor": "氯丁二烯",
+    "FactorName": "氯丁二烯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.002"
+      }
+    ]
+  },
+  "六氯丁二烯": {
+    "Factor": "六氯丁二烯",
+    "FactorName": "六氯丁二烯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.0006"
+      }
+    ]
+  },
+  "苯乙烯": {
+    "Factor": "苯乙烯",
+    "FactorName": "苯乙烯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      }
+    ]
+  },
+  "甲醛": {
+    "Factor": "甲醛",
+    "FactorName": "甲醛",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.9"
+      }
+    ]
+  },
+  "乙醛": {
+    "Factor": "乙醛",
+    "FactorName": "乙醛",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      }
+    ]
+  },
+  "丙烯醛": {
+    "Factor": "丙烯醛",
+    "FactorName": "丙烯醛",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "三氯乙醛": {
+    "Factor": "三氯乙醛",
+    "FactorName": "三氯乙醛",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      }
+    ]
+  },
+  "苯": {
+    "Factor": "苯",
+    "FactorName": "苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      }
+    ]
+  },
+  "甲苯": {
+    "Factor": "甲苯",
+    "FactorName": "甲苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.7"
+      }
+    ]
+  },
+  "乙苯": {
+    "Factor": "乙苯",
+    "FactorName": "乙苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.3"
+      }
+    ]
+  },
+  "二甲苯": {
+    "Factor": "二甲苯",
+    "FactorName": "二甲苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      }
+    ]
+  },
+  "异丙苯": {
+    "Factor": "异丙苯",
+    "FactorName": "异丙苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.25"
+      }
+    ]
+  },
+  "氯苯": {
+    "Factor": "氯苯",
+    "FactorName": "氯苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.3"
+      }
+    ]
+  },
+  "一_二_二氯苯": {
+    "Factor": "一_二_二氯苯",
+    "FactorName": "1,2-二氯苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1"
+      }
+    ]
+  },
+  "一_四_二氯苯": {
+    "Factor": "一_四_二氯苯",
+    "FactorName": "1,4-二氯苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.3"
+      }
+    ]
+  },
+  "三氯苯": {
+    "Factor": "三氯苯",
+    "FactorName": "三氯苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      }
+    ]
+  },
+  "四氯苯": {
+    "Factor": "四氯苯",
+    "FactorName": "四氯苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      }
+    ]
+  },
+  "六氯苯": {
+    "Factor": "六氯苯",
+    "FactorName": "六氯苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      }
+    ]
+  },
+  "硝基苯": {
+    "Factor": "硝基苯",
+    "FactorName": "硝基苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.017"
+      }
+    ]
+  },
+  "二硝基苯": {
+    "Factor": "二硝基苯",
+    "FactorName": "二硝基苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      }
+    ]
+  },
+  "二_四_二硝基甲苯": {
+    "Factor": "二_四_二硝基甲苯",
+    "FactorName": "2,4-二硝基甲苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.0003"
+      }
+    ]
+  },
+  "二_四_六_三硝基甲苯": {
+    "Factor": "二_四_六_三硝基甲苯",
+    "FactorName": "2,4,6-三硝基甲苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      }
+    ]
+  },
+  "硝基氯苯": {
+    "Factor": "硝基氯苯",
+    "FactorName": "硝基氯苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      }
+    ]
+  },
+  "二_四_二硝基氯苯": {
+    "Factor": "二_四_二硝基氯苯",
+    "FactorName": "2,4-二硝基氯苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      }
+    ]
+  },
+  "二_四_二氯苯酚": {
+    "Factor": "二_四_二氯苯酚",
+    "FactorName": "2,4-二氯苯酚",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.093"
+      }
+    ]
+  },
+  "二_四_六_三氯苯酚": {
+    "Factor": "二_四_六_三氯苯酚",
+    "FactorName": "2,4,6-三氯苯酚",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      }
+    ]
+  },
+  "五氯酚": {
+    "Factor": "五氯酚",
+    "FactorName": "五氯酚",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.009"
+      }
+    ]
+  },
+  "苯胺": {
+    "Factor": "苯胺",
+    "FactorName": "苯胺",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "联苯胺": {
+    "Factor": "联苯胺",
+    "FactorName": "联苯胺",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.0002"
+      }
+    ]
+  },
+  "丙烯酰胺": {
+    "Factor": "丙烯酰胺",
+    "FactorName": "丙烯酰胺",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.0005"
+      }
+    ]
+  },
+  "丙烯腈": {
+    "Factor": "丙烯腈",
+    "FactorName": "丙烯腈",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "邻苯二甲酸二丁酯": {
+    "Factor": "邻苯二甲酸二丁酯",
+    "FactorName": "邻苯二甲酸二丁酯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.003"
+      }
+    ]
+  },
+  "邻苯二甲酸二_二_乙基己基_酯": {
+    "Factor": "邻苯二甲酸二_二_乙基己基_酯",
+    "FactorName": "邻苯二甲酸二(2-乙基己基)酯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.008"
+      }
+    ]
+  },
+  "水合肼": {
+    "Factor": "水合肼",
+    "FactorName": "水合肼",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      }
+    ]
+  },
+  "四乙基铅": {
+    "Factor": "四乙基铅",
+    "FactorName": "四乙基铅",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.0001"
+      }
+    ]
+  },
+  "吡啶": {
+    "Factor": "吡啶",
+    "FactorName": "吡啶",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      }
+    ]
+  },
+  "松节油": {
+    "Factor": "松节油",
+    "FactorName": "松节油",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.2"
+      }
+    ]
+  },
+  "苦味酸": {
+    "Factor": "苦味酸",
+    "FactorName": "苦味酸",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      }
+    ]
+  },
+  "丁基黄原酸": {
+    "Factor": "丁基黄原酸",
+    "FactorName": "丁基黄原酸",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.005"
+      }
+    ]
+  },
+  "活性氯": {
+    "Factor": "活性氯",
+    "FactorName": "活性氯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      }
+    ]
+  },
+  "滴滴涕": {
+    "Factor": "滴滴涕",
+    "FactorName": "滴滴涕",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.001"
+      }
+    ]
+  },
+  "林丹": {
+    "Factor": "林丹",
+    "FactorName": "林丹",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.002"
+      }
+    ]
+  },
+  "环氧七氯": {
+    "Factor": "环氧七氯",
+    "FactorName": "环氧七氯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.0002"
+      }
+    ]
+  },
+  "对硫磷": {
+    "Factor": "对硫磷",
+    "FactorName": "对硫磷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.003"
+      }
+    ]
+  },
+  "甲基对硫磷": {
+    "Factor": "甲基对硫磷",
+    "FactorName": "甲基对硫磷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.002"
+      }
+    ]
+  },
+  "马拉硫磷": {
+    "Factor": "马拉硫磷",
+    "FactorName": "马拉硫磷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      }
+    ]
+  },
+  "乐果": {
+    "Factor": "乐果",
+    "FactorName": "乐果",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.08"
+      }
+    ]
+  },
+  "敌敌畏": {
+    "Factor": "敌敌畏",
+    "FactorName": "敌敌畏",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      }
+    ]
+  },
+  "敌百虫": {
+    "Factor": "敌百虫",
+    "FactorName": "敌百虫",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      }
+    ]
+  },
+  "内吸磷": {
+    "Factor": "内吸磷",
+    "FactorName": "内吸磷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.03"
+      }
+    ]
+  },
+  "百菌清": {
+    "Factor": "百菌清",
+    "FactorName": "百菌清",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.01"
+      }
+    ]
+  },
+  "甲萘威": {
+    "Factor": "甲萘威",
+    "FactorName": "甲萘威",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      }
+    ]
+  },
+  "溴氰菊酯": {
+    "Factor": "溴氰菊酯",
+    "FactorName": "溴氰菊酯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      }
+    ]
+  },
+  "阿特拉津": {
+    "Factor": "阿特拉津",
+    "FactorName": "阿特拉津",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.003"
+      }
+    ]
+  },
+  "苯并_a_芘": {
+    "Factor": "苯并_a_芘",
+    "FactorName": "苯并(a)芘",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.0000028"
+      }
+    ]
+  },
+  "甲基汞": {
+    "Factor": "甲基汞",
+    "FactorName": "甲基汞",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.000001"
+      }
+    ]
+  },
+  "多氯联苯": {
+    "Factor": "多氯联苯",
+    "FactorName": "多氯联苯",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.00002"
+      }
+    ]
+  },
+  "微囊藻毒素_LR": {
+    "Factor": "微囊藻毒素_LR",
+    "FactorName": "微囊藻毒素-LR",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.001"
+      }
+    ]
+  },
+  "黄磷": {
+    "Factor": "黄磷",
+    "FactorName": "黄磷",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.003"
+      }
+    ]
+  },
+  "钼": {
+    "Factor": "钼",
+    "FactorName": "钼",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.07"
+      }
+    ]
+  },
+  "钴": {
+    "Factor": "钴",
+    "FactorName": "钴",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "1"
+      }
+    ]
+  },
+  "铍": {
+    "Factor": "铍",
+    "FactorName": "铍",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.002"
+      }
+    ]
+  },
+  "硼": {
+    "Factor": "硼",
+    "FactorName": "硼",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.5"
+      }
+    ]
+  },
+  "锑": {
+    "Factor": "锑",
+    "FactorName": "锑",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.005"
+      }
+    ]
+  },
+  "镍": {
+    "Factor": "镍",
+    "FactorName": "镍",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.02"
+      }
+    ]
+  },
+  "钡": {
+    "Factor": "钡",
+    "FactorName": "钡",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.7"
+      }
+    ]
+  },
+  "钒": {
+    "Factor": "钒",
+    "FactorName": "钒",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.05"
+      }
+    ]
+  },
+  "钛": {
+    "Factor": "钛",
+    "FactorName": "钛",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.1"
+      }
+    ]
+  },
+  "铊": {
+    "Factor": "铊",
+    "FactorName": "铊",
+    "Description": null,
+    "Unit": "mg/L",
+    "Limits": [
+      {
+        "WaterQualityClass": "Ⅰ",
+        "ComparisonType": "LessThanOrEqual",
+        "LimitValue": "0.0001"
+      }
+    ]
+  }
+}

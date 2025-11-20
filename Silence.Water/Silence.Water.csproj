@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Groundwater\Data\GBT_14848_2017.json" />
+      <EmbeddedResource Include="Groundwater\Data\GBT_14848_2017.json" />
+      <None Remove="SurfaceWater\Data\GB_3838_2002.json" />
+      <EmbeddedResource Include="SurfaceWater\Data\GB_3838_2002.json" />
+    </ItemGroup>
+
+</Project>
